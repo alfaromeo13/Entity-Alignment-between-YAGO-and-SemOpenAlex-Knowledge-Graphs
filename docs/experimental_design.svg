@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="760" height="540" viewBox="0 0 760 540" role="img" aria-labelledby="title desc">
+  <title id="title">Experimental design for Stage 06</title>
+  <desc id="desc">The Stage 05 baseline branches into the profile-text A+B experiment and the graph-neighbor C experiment. Their evidence is combined in the final A+B+C production system.</desc>
+  <defs>
+    <style>
+      .bg { fill: #f8fafc; }
+      .box { fill: #eff6ff; stroke: #2563eb; stroke-width: 2; }
+      .final-box { fill: #dbeafe; stroke: #1d4ed8; stroke-width: 2.5; }
+      .label { font-family: Arial, Helvetica, sans-serif; font-size: 18px; fill: #0f172a; font-weight: 700; }
+      .detail { font-family: Arial, Helvetica, sans-serif; font-size: 14px; fill: #475569; }
+      .formula { font-family: Arial, Helvetica, sans-serif; font-size: 13px; fill: #1e40af; font-weight: 600; }
+      .arrow { stroke: #64748b; stroke-width: 2.2; fill: none; marker-end: url(#arrowhead); }
+    </style>
+    <marker id="arrowhead" markerWidth="10" markerHeight="8" refX="9" refY="4" orient="auto">
+      <polygon points="0 0, 10 4, 0 8" fill="#64748b"/>
+    </marker>
+  </defs>
+
+  <rect class="bg" width="760" height="540" rx="20"/>
+
+  <!-- Connections are drawn first so they remain behind the boxes. -->
+  <path class="arrow" d="M380 133 V174 H190 V205"/>
+  <path class="arrow" d="M380 133 V174 H570 V205"/>
+  <path class="arrow" d="M190 305 V350 H380 V392"/>
+  <path class="arrow" d="M570 305 V350 H380 V392"/>
+
+  <rect class="box" x="230" y="45" width="300" height="88" rx="12"/>
+  <text x="380" y="80" text-anchor="middle" class="label">Stage 05 Baseline</text>
+  <text x="380" y="106" text-anchor="middle" class="detail">Embedding-based entity alignment</text>
+
+  <rect class="box" x="55" y="205" width="270" height="100" rx="12"/>
+  <text x="190" y="243" text-anchor="middle" class="label">Experiment A+B</text>
+  <text x="190" y="270" text-anchor="middle" class="detail">Profile-text refinement</text>
+
+  <rect class="box" x="435" y="205" width="270" height="100" rx="12"/>
+  <text x="570" y="243" text-anchor="middle" class="label">Experiment C</text>
+  <text x="570" y="270" text-anchor="middle" class="detail">Graph-neighbor refinement</text>
+
+  <rect class="final-box" x="190" y="392" width="380" height="108" rx="12"/>
+  <text x="380" y="427" text-anchor="middle" class="label">Final A+B+C System</text>
+  <text x="380" y="454" text-anchor="middle" class="detail">Selected production configuration</text>
+  <text x="380" y="479" text-anchor="middle" class="formula">60% embedding · 35% profile text · 5% graph neighbor</text>
+</svg>

@@ -1,0 +1,147 @@
+# ---------------------------------------------------------------------------
+# KGAlignment project ignore rules
+#
+# The repository should contain code, Slurm scripts, documentation, lightweight
+# figures/tables, and configuration. Raw RDF dumps, intermediate TSVs,
+# embeddings, logs, virtual environments, caches, and GraphDB runtime state are
+# too large or machine-specific for GitHub.
+# ---------------------------------------------------------------------------
+
+# Python/runtime caches
+__pycache__/
+*.py[cod]
+*.pyo
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.ipynb_checkpoints/
+
+# Local environments and machine-specific files
+.venv/
+venv/
+env/
+*.env
+.env
+.DS_Store
+Thumbs.db
+
+# Logs and scheduler output
+logs/
+*.log
+*.out
+*.err
+slurm-*.out
+
+# Large raw datasets
+01_raw/yago/*
+01_raw/semopenalex/*
+!01_raw/README.md
+!01_raw/semopenalex/
+!01_raw/semopenalex/download_semopenalex.sh
+!01_raw/semopenalex/semopenalex-ontology.ttl
+
+# Preprocessed and encoded datasets
+02_preprocessed/semopenalex_clean/
+02_preprocessed/yago/
+02_preprocessed/semopenalex_shards/
+02_preprocessed/semopenalex_retry_shards/
+02_preprocessed/semopenalex_pass3_shards/
+02_preprocessed/semopenalex_combined_shards/
+02_preprocessed/manifests/
+
+03_integer_encoding/semopenalex/
+03_integer_encoding/yago/
+
+# PyTorch-BigGraph generated inputs/checkpoints/evaluation artifacts
+04_embeddings/input/
+04_embeddings/output/
+04_embeddings/analysis/**/*.txt
+04_embeddings/analysis/**/*.json
+04_embeddings/analysis/**/*.tsv
+04_embeddings/analysis/**/*.csv
+
+# Stage 05 generated alignment data
+05_entity_alignment/data/
+05_entity_alignment/outputs/
+05_entity_alignment/final_alignment/data/
+05_entity_alignment/final_alignment/outputs/
+05_entity_alignment/final_alignment/logs/
+
+# Stage 06 generated experiment data
+06_experiments/type_text_enrichment/data/
+06_experiments/type_text_enrichment/outputs/
+06_experiments/type_text_enrichment/logs/
+06_experiments/graph_neighbor_only/data/
+06_experiments/graph_neighbor_only/outputs/
+06_experiments/graph_neighbor_only/logs/
+06_experiments/graph_neighbor_signal/data/
+06_experiments/graph_neighbor_signal/outputs/
+06_experiments/graph_neighbor_signal/logs/
+
+# Stage 07 large/generated runtime artifacts
+07_export/.venv/
+07_export/logs/
+07_export/rdf_alignments/
+07_export/visualizations/cache/
+07_export/**/*.pkl
+
+# GraphDB local runtime and license files
+08_ontotex_graphdb/graphdb-home/
+08_ontotex_graphdb/*.license
+graphdb-home/
+*.license
+
+# Future-work generated artifacts
+09_future_work/**/data/
+09_future_work/**/output/
+09_future_work/**/outputs/
+09_future_work/**/logs/
+
+# Generic large data/model artifacts
+*.tsv
+*.tsv.gz
+*.csv.gz
+*.ttl
+*.ttl.gz
+*.trig
+*.trig.gz
+*.nt
+*.nt.gz
+*.ntx
+*.nq
+*.nq.gz
+*.h5
+*.hdf5
+*.npy
+*.npz
+*.pkl
+*.pt
+*.pth
+*.bin
+
+# Keep lightweight documentation tables/figures in Stage 07.
+!07_export/visualizations/
+!07_export/visualizations/**
+07_export/visualizations/cache/
+07_export/visualizations/**/*.pkl
+
+# Keep project documentation and source/config files even when generic patterns
+# above would otherwise match in generated-data directories.
+!README.md
+!LICENSE
+!**/README.md
+!**/*.py
+!**/*.sh
+!**/*.sbatch
+!**/*.yml
+!**/*.yaml
+!**/*.json
+!**/*.rq
+!**/*.md
+!**/*.svg
+!**/*.png
+!**/*.pdf
+
+# Specific small source/reference files kept from otherwise ignored data areas.
+!01_raw/semopenalex/semopenalex-ontology.ttl
+!01_raw/semopenalex/download_semopenalex.sh

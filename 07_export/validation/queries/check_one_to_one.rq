@@ -1,0 +1,22 @@
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+
+# Run each branch separately if GraphDB's optimizer struggles with the UNION.
+# A correct one-to-one export should return no rows.
+SELECT ?side ?entity (COUNT(DISTINCT ?counterpart) AS ?matches)
+WHERE {
+  {
+    BIND("YAGO" AS ?side)
+    ?entity owl:sameAs ?counterpart .
+    FILTER(STRSTARTS(STR(?entity), "http://yago-knowledge.org/resource/"))
+  }
+  UNION
+  {
+    BIND("SemOpenAlex" AS ?side)
+    ?counterpart owl:sameAs ?entity .
+    FILTER(STRSTARTS(STR(?entity), "https://semopenalex.org/"))
+  }
+}
+GROUP BY ?side ?entity
+HAVING (COUNT(DISTINCT ?counterpart) > 1)
+ORDER BY DESC(?matches)
+

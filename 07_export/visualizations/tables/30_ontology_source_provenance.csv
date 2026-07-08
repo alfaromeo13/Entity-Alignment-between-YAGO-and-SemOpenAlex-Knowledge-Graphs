@@ -1,0 +1,4 @@
+Source,Path,SHA-256
+YAGO schema,01_raw/yago/yago-schema.ttl,9f1a9290d7cae5610c145bdb1c73928afb3d598e06604ced5a1b612bd704ee93
+YAGO taxonomy,01_raw/yago/yago-taxonomy.ttl,a2090f018039c63e2290c59484b73a322fe8287ab2f8a0f394b211e69209c126
+SemOpenAlex ontology,01_raw/semopenalex/semopenalex-ontology.ttl,9557078a1fdb75a5aeafd94d1192f752dc5af2cd6912fd58ab5b7434f4c85e29

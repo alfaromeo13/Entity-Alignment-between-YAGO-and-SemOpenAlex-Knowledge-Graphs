@@ -1,0 +1,21 @@
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX kg:  <https://kgalign.example.org/schema/>
+
+SELECT ?type ?source ?confidence
+       (COUNT(*) AS ?alignments)
+       (AVG(?score) AS ?meanScore)
+       (MIN(?score) AS ?minScore)
+       (MAX(?score) AS ?maxScore)
+WHERE {
+  ?alignment a kg:Alignment ;
+             rdf:subject ?yago ;
+             rdf:predicate owl:sameAs ;
+             rdf:object ?semopenalex ;
+             kg:abcScore ?score ;
+             kg:semopenalexType ?type ;
+             kg:source ?source ;
+             kg:confidence ?confidence .
+}
+GROUP BY ?type ?source ?confidence
+ORDER BY ?type ?source ?confidence

@@ -1,0 +1,95 @@
+{
+  "input": "KGAlignment/06_experiments/graph_neighbor_signal/outputs/strict/sensitivity/abc_w060_035_005_t020.tsv",
+  "upper_threshold_exclusive": 0.3,
+  "removed_rows": 4208,
+  "sample_rows": 200,
+  "sample_seed": 20260702,
+  "semopenalex_type_counts": {
+    "work": 3582,
+    "author": 511,
+    "funder": 44,
+    "concept": 38,
+    "source": 19,
+    "institution": 6,
+    "keyword": 4,
+    "publisher": 4
+  },
+  "confidence_tier_counts": {
+    "ambiguous": 2147,
+    "high_confidence": 2061
+  },
+  "yago_type_evidence_counts": {
+    "taxonomy": 4208
+  },
+  "zero_neighbor_score_rows": 0,
+  "zero_neighbor_score_share": 0.0,
+  "token_jaccard_one_rows": 3575,
+  "token_jaccard_one_share": 0.8495722433460076,
+  "numeric_summaries": {
+    "embedding_cosine": {
+      "minimum": 0.20002684,
+      "p10": 0.21619569,
+      "median": 0.26499766,
+      "p90": 0.34820718,
+      "maximum": 0.49657941,
+      "mean": 0.2756863976307033
+    },
+    "profile_tfidf_score": {
+      "minimum": 0.0,
+      "p10": 0.15267384,
+      "median": 0.30834488,
+      "p90": 0.41223175,
+      "maximum": 0.50518616,
+      "mean": 0.29402771818916273
+    },
+    "neighbor_tfidf_score": {
+      "minimum": 0.00287429,
+      "p10": 0.01475376,
+      "median": 0.02167132,
+      "p90": 0.02847075,
+      "maximum": 0.32435089,
+      "mean": 0.021981728928231928
+    },
+    "combined_score": {
+      "minimum": 0.2500012465,
+      "p10": 0.2568217945,
+      "median": 0.282122404,
+      "p90": 0.306361823,
+      "maximum": 0.3229146525,
+      "mean": 0.28210585982616515
+    },
+    "abc_score": {
+      "minimum": 0.23210103399999998,
+      "p10": 0.24499287799999997,
+      "median": 0.26967516299999994,
+      "p90": 0.2935640515,
+      "maximum": 0.29998981799999996,
+      "mean": 0.2694206263910416
+    },
+    "token_jaccard": {
+      "minimum": 0.0,
+      "p10": 0.333333,
+      "median": 1.0,
+      "p90": 1.0,
+      "maximum": 1.0,
+      "mean": 0.8968534824144485
+    },
+    "semopenalex_label_freq": {
+      "minimum": 2.0,
+      "p10": 2.0,
+      "median": 6.0,
+      "p90": 25.0,
+      "maximum": 50.0,
+      "mean": 9.920865019011407
+    },
+    "yago_candidate_count": {
+      "minimum": 2.0,
+      "p10": 2.0,
+      "median": 6.0,
+      "p90": 25.0,
+      "maximum": 50.0,
+      "mean": 9.920865019011407
+    }
+  },
+  "interpretation": "Boundary evidence review only. Membership below the score threshold does not establish that an alignment is incorrect."
+}

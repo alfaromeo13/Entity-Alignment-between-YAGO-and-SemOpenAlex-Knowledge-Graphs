@@ -1,0 +1,33 @@
+{
+  "input": "/data/horse/ws/jovu353i-kgalign/KGAlignment/06_experiments/graph_neighbor_signal/outputs/strict/sensitivity/abc_w060_035_005_t030.tsv",
+  "rows_audited": 1973194,
+  "unique_pairs": 1973194,
+  "unique_yago_entities": 1973194,
+  "unique_semopenalex_entities": 1973194,
+  "issue_counts": {},
+  "source_counts": {
+    "embedding_type_text_top1_v2": 1021328,
+    "strict_proxy_gold": 951866
+  },
+  "type_counts": {
+    "author": 1656666,
+    "concept": 1526,
+    "field": 1,
+    "funder": 1074,
+    "institution": 27355,
+    "keyword": 343,
+    "publisher": 1553,
+    "source": 11373,
+    "subfield": 3,
+    "topic": 1,
+    "work": 273299
+  },
+  "abc_score_band_counts": {
+    "[0.90,1.00]": 951866,
+    "[0.75,0.90)": 63,
+    "[0.60,0.75)": 322095,
+    "[0.45,0.60)": 677956,
+    "[0.30,0.45)": 21214
+  },
+  "interpretation": "Machine-testable integrity audit only; zero issues does not establish semantic correctness or precision."
+}

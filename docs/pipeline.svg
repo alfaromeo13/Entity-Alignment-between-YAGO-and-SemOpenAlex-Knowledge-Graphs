@@ -1,0 +1,73 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="680" height="1200" viewBox="0 40 680 1200" role="img" aria-labelledby="title desc">
+  <title id="title">YAGO–SemOpenAlex entity alignment pipeline</title>
+  <desc id="desc">A vertical pipeline from the raw YAGO and SemOpenAlex RDF datasets through seven processing stages to GraphDB and SPARQL.</desc>
+  <defs>
+    <style>
+      .bg { fill: #f8fafc; }
+      .stage { fill: #eff6ff; stroke: #2563eb; stroke-width: 2; }
+      .endpoint { fill: #f0fdf4; stroke: #16a34a; stroke-width: 2; }
+      .label { font-family: Arial, Helvetica, sans-serif; font-size: 17px; fill: #0f172a; font-weight: 700; }
+      .detail { font-family: Arial, Helvetica, sans-serif; font-size: 14px; fill: #475569; }
+      .arrow { stroke: #64748b; stroke-width: 2.2; fill: none; marker-end: url(#arrowhead); }
+    </style>
+    <marker id="arrowhead" markerWidth="10" markerHeight="8" refX="9" refY="4" orient="auto">
+      <polygon points="0 0, 10 4, 0 8" fill="#64748b"/>
+    </marker>
+  </defs>
+
+  <rect class="bg" width="680" height="1240" rx="20"/>
+  <rect class="stage" x="155" y="70" width="370" height="72" rx="12"/>
+  <text x="340" y="114" text-anchor="middle" class="label">YAGO / SemOpenAlex</text>
+
+  <path class="arrow" d="M340 142 V178"/>
+
+  <rect class="stage" x="120" y="178" width="440" height="76" rx="12"/>
+  <text x="340" y="209" text-anchor="middle" class="label">01_raw</text>
+  <text x="340" y="234" text-anchor="middle" class="detail">Original RDF Turtle and TriG dumps</text>
+
+  <path class="arrow" d="M340 254 V290"/>
+
+  <rect class="stage" x="120" y="290" width="440" height="108" rx="12"/>
+  <text x="340" y="321" text-anchor="middle" class="label">02_preprocessed</text>
+  <text x="340" y="347" text-anchor="middle" class="detail">RDF cleaning, literal extraction, graph preparation,</text>
+  <text x="340" y="369" text-anchor="middle" class="detail">and train / validation / test splits</text>
+
+  <path class="arrow" d="M340 398 V434"/>
+
+  <rect class="stage" x="120" y="434" width="440" height="88" rx="12"/>
+  <text x="340" y="465" text-anchor="middle" class="label">03_integer_encoding</text>
+  <text x="340" y="491" text-anchor="middle" class="detail">URI → integer dictionaries and triples</text>
+
+  <path class="arrow" d="M340 522 V558"/>
+
+  <rect class="stage" x="120" y="558" width="440" height="108" rx="12"/>
+  <text x="340" y="589" text-anchor="middle" class="label">04_embeddings</text>
+  <text x="340" y="615" text-anchor="middle" class="detail">PyTorch-BigGraph conversion, embedding training,</text>
+  <text x="340" y="637" text-anchor="middle" class="detail">and model evaluation</text>
+
+  <path class="arrow" d="M340 666 V702"/>
+
+  <rect class="stage" x="120" y="702" width="440" height="108" rx="12"/>
+  <text x="340" y="733" text-anchor="middle" class="label">05_entity_alignment</text>
+  <text x="340" y="759" text-anchor="middle" class="detail">Candidate generation, embedding scoring,</text>
+  <text x="340" y="781" text-anchor="middle" class="detail">TF-IDF refinement, and one-to-one matching</text>
+
+  <path class="arrow" d="M340 810 V846"/>
+
+  <rect class="stage" x="120" y="846" width="440" height="124" rx="12"/>
+  <text x="340" y="877" text-anchor="middle" class="label">06_experiments</text>
+  <text x="340" y="903" text-anchor="middle" class="detail">Profile-text refinement, graph-neighbor refinement,</text>
+  <text x="340" y="925" text-anchor="middle" class="detail">and combined A+B+C evaluation</text>
+
+  <path class="arrow" d="M340 970 V1006"/>
+
+  <rect class="stage" x="120" y="1006" width="440" height="108" rx="12"/>
+  <text x="340" y="1037" text-anchor="middle" class="label">07_export</text>
+  <text x="340" y="1063" text-anchor="middle" class="detail">RDF Turtle / TriG generation</text>
+  <text x="340" y="1085" text-anchor="middle" class="detail">using owl:sameAs links</text>
+
+  <path class="arrow" d="M340 1114 V1150"/>
+
+  <rect class="endpoint" x="155" y="1150" width="370" height="60" rx="12"/>
+  <text x="340" y="1187" text-anchor="middle" class="label">GraphDB / SPARQL</text>
+</svg>

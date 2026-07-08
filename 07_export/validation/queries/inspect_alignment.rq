@@ -1,0 +1,40 @@
+PREFIX owl:    <http://www.w3.org/2002/07/owl#>
+PREFIX rdf:    <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs:   <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX skos:   <http://www.w3.org/2004/02/skos/core#>
+PREFIX schema:  <http://schema.org/>
+PREFIX schemas: <https://schema.org/>
+PREFIX kg:     <https://kgalign.example.org/schema/>
+
+# Replace the two IRIs below with one row from annotation.tsv.
+# This query works across the repository when YAGO, SemOpenAlex and the
+# alignment graph are loaded. It intentionally does not assume graph names.
+SELECT ?side ?entity ?predicate ?value
+WHERE {
+  {
+    VALUES (?side ?entity) {
+      ("YAGO"        <http://yago-knowledge.org/resource/REPLACE_ME>)
+      ("SemOpenAlex" <https://semopenalex.org/author/REPLACE_ME>)
+    }
+    ?entity ?predicate ?value .
+    FILTER (
+      ?predicate IN (
+        rdf:type, rdfs:label, skos:prefLabel,
+        schema:name, schema:description, schema:identifier, schema:sameAs,
+        schemas:name, schemas:description, schemas:identifier, schemas:sameAs,
+        owl:sameAs
+      )
+      || isIRI(?value)
+    )
+  }
+  UNION
+  {
+    BIND("Alignment" AS ?side)
+    ?entity a kg:Alignment ;
+            rdf:subject <http://yago-knowledge.org/resource/REPLACE_ME> ;
+            rdf:object <https://semopenalex.org/author/REPLACE_ME> ;
+            ?predicate ?value .
+  }
+}
+ORDER BY ?side ?predicate ?value
+LIMIT 500

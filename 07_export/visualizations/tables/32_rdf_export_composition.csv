@@ -1,0 +1,5 @@
+Group,Triples per alignment,Total triples,Share,Contents
+Direct identity assertion,1,1973194,0.07692307692307693,owl:sameAs
+Standard reification structure,5,9865970,0.38461538461538464,rdf:Statement + kg:Alignment types; rdf:subject/predicate/object
+Numerical evidence,4,7892776,0.3076923076923077,"embedding, profile, neighbor, and ABC scores"
+Categorical metadata,3,5919582,0.23076923076923078,"SemOpenAlex type, selection source, confidence tier"

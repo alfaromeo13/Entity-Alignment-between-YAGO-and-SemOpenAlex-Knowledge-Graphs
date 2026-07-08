@@ -1,0 +1,25 @@
+Dataset,Model,Rank band,Share,Test triples
+YAGO,TransE,Rank = 1,0.334888,176574
+YAGO,TransE,Ranks 2–10,0.282267,176574
+YAGO,TransE,Ranks 11–50,0.368474,176574
+YAGO,TransE,Rank > 50,0.014371,176574
+YAGO,DistMult,Rank = 1,0.418131,176574
+YAGO,DistMult,Ranks 2–10,0.201816,176574
+YAGO,DistMult,Ranks 11–50,0.350397,176574
+YAGO,DistMult,Rank > 50,0.029656,176574
+YAGO,ComplEx,Rank = 1,0.400654,176574
+YAGO,ComplEx,Ranks 2–10,0.200165,176574
+YAGO,ComplEx,Ranks 11–50,0.360693,176574
+YAGO,ComplEx,Rank > 50,0.038488,176574
+SemOpenAlex,TransE,Rank = 1,0.72418,50000
+SemOpenAlex,TransE,Ranks 2–10,0.17598,50000
+SemOpenAlex,TransE,Ranks 11–50,0.0961,50000
+SemOpenAlex,TransE,Rank > 50,0.00374,50000
+SemOpenAlex,DistMult,Rank = 1,0.79984,50000
+SemOpenAlex,DistMult,Ranks 2–10,0.10687,50000
+SemOpenAlex,DistMult,Ranks 11–50,0.09282,50000
+SemOpenAlex,DistMult,Rank > 50,0.00047,50000
+SemOpenAlex,ComplEx,Rank = 1,0.79939,50000
+SemOpenAlex,ComplEx,Ranks 2–10,0.10466,50000
+SemOpenAlex,ComplEx,Ranks 11–50,0.09563,50000
+SemOpenAlex,ComplEx,Rank > 50,0.00032,50000

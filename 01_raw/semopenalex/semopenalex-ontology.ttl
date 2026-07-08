@@ -1,0 +1,1167 @@
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+dct:title a owl:DatatypeProperty;
+  rdfs:label "title"@en .
+
+<http://xmlns.com/foaf/0.1/homepage> a owl:DatatypeProperty;
+  rdfs:label "homepage"@en .
+
+<http://xmlns.com/foaf/0.1/name> a owl:DatatypeProperty;
+  rdfs:label "name"@en .
+
+dct:abstract a owl:DatatypeProperty;
+  rdfs:label "abstract"@en .
+
+<http://purl.org/spar/fabio/hasURL> a owl:DatatypeProperty;
+  rdfs:label "has url"@en .
+
+dct:creator a owl:ObjectProperty;
+  rdfs:label "creator"@en .
+
+<https://dbpedia.org/property/acronym> a owl:DatatypeProperty;
+  rdfs:label "acronym"@en .
+
+skos:Concept a owl:Class;
+  rdfs:label "Concept"@en .
+
+rdfs:seeAlso a owl:ObjectProperty;
+  rdfs:label "see also"@en .
+
+skos:prefLabel a owl:DatatypeProperty;
+  rdfs:label "prefLabel" .
+
+skos:broader a owl:ObjectProperty;
+  rdfs:label "broader" .
+
+<http://xmlns.com/foaf/0.1/depiction> a owl:DatatypeProperty;
+  rdfs:label "depiction"@en .
+
+<http://purl.org/spar/fabio/hasPublicationYear> a owl:DatatypeProperty;
+  rdfs:label "has publication year"@en .
+
+<https://semopenalex.org/ontology/Author> a owl:Class;
+  rdfs:label "Author"@en .
+
+<https://semopenalex.org/ontology/hasAuthor> a owl:ObjectProperty;
+  rdfs:label "has author"@en .
+
+<http://prismstandard.org/namespaces/basic/2.0/startingPage> a owl:DatatypeProperty;
+  rdfs:label "starting page"@en .
+
+<https://semopenalex.org/ontology/fatcatId> a owl:DatatypeProperty;
+  rdfs:label "fatcatId"@en .
+
+<https://dbpedia.org/ontology/alternativeName> a owl:DatatypeProperty;
+  rdfs:label "alternative name"@en .
+
+<https://semopenalex.org/ontology/oaStatus> a owl:DatatypeProperty;
+  rdfs:label "oa status"@en .
+
+<https://semopenalex.org/ontology/Institution> a owl:Class;
+  rdfs:label "Institution"@en .
+
+<https://semopenalex.org/ontology/Work> a owl:Class;
+  rdfs:label "Work"@en .
+
+<https://semopenalex.org/ontology/Concept> a owl:Class;
+  rdfs:subClassOf skos:Concept;
+  rdfs:label "Concept"@en .
+
+<https://semopenalex.org/ontology/Publisher> a owl:Class;
+  rdfs:label "Publisher"@en .
+
+<https://semopenalex.org/ontology/Source> a owl:Class;
+  rdfs:label "Source"@en .
+
+<https://semopenalex.org/ontology/Funder> a owl:Class;
+  rdfs:label "Funder"@en .
+
+<https://semopenalex.org/ontology/CountsByYear> a owl:Class;
+  rdfs:label "CountsByYear"@en .
+
+<https://semopenalex.org/ontology/OpenAccess> a owl:Class;
+  rdfs:label "OpenAccess"@en .
+
+<https://semopenalex.org/ontology/Location> a owl:Class;
+  rdfs:label "Location"@en .
+
+<https://semopenalex.org/ontology/crossref> a owl:DatatypeProperty;
+  rdfs:label "crossref"@en .
+
+<https://semopenalex.org/ontology/Authorship> a owl:Class;
+  rdfs:label "Authorship"@en .
+
+<https://semopenalex.org/ontology/hasAuthorship> a owl:ObjectProperty;
+  rdfs:label "has authorship"@en .
+
+<http://purl.org/spar/cito/cites> a owl:ObjectProperty;
+  rdfs:label "cites"@en .
+
+<http://www.w3.org/ns/org#memberOf> a owl:ObjectProperty;
+  rdfs:label "member of"@en .
+
+<https://dbpedia.org/property/country> a owl:DatatypeProperty;
+  rdfs:label "country"@en .
+
+dct:publisher a owl:DatatypeProperty;
+  rdfs:label "publisher"@en .
+
+<https://semopenalex.org/ontology/year> a owl:DatatypeProperty;
+  rdfs:label "year"@en .
+
+<https://dbpedia.org/property/city> a owl:DatatypeProperty;
+  rdfs:label "city"@en .
+
+<https://semopenalex.org/ontology/crossrefType> a owl:DatatypeProperty;
+  rdfs:label "crossers type"@en .
+
+<https://semopenalex.org/ontology/hasFunder> a owl:ObjectProperty;
+  rdfs:label "has funder"@en .
+
+<https://semopenalex.org/ontology/isOa> a owl:DatatypeProperty;
+  rdfs:label "is oa"@en .
+
+<http://prismstandard.org/namespaces/basic/2.0/issn> a owl:DatatypeProperty;
+  rdfs:label "issn"@en .
+
+<https://dbpedia.org/ontology/orcidId> a owl:DatatypeProperty;
+  rdfs:label "orcid id"@en .
+
+dct:modified a owl:DatatypeProperty;
+  rdfs:label "modified" .
+
+<https://semopenalex.org/ontology/isInDoaj> a owl:DatatypeProperty;
+  rdfs:label "is in doaj"@en .
+
+<https://semopenalex.org/ontology/rawAffiliation> a owl:DatatypeProperty;
+  rdfs:label "raw affiliation"@en .
+
+<https://semopenalex.org/ontology/i10Index> a owl:DatatypeProperty;
+  rdfs:label "i10Index"@en .
+
+<https://semopenalex.org/ontology/isRetracted> a owl:DatatypeProperty;
+  rdfs:label "is retracted"@en .
+
+<https://semopenalex.org/ontology/isCorresponding> a owl:DatatypeProperty;
+  rdfs:label "is corresponding"@en .
+
+<https://semopenalex.org/ontology/grid> a owl:DatatypeProperty;
+  rdfs:label "grid"@en .
+
+<https://semopenalex.org/ontology/hasOpenAccess> a owl:ObjectProperty;
+  rdfs:label "has open access"@en .
+
+<https://semopenalex.org/ontology/hasLocation> a owl:ObjectProperty;
+  rdfs:label "has location"@en .
+
+<https://semopenalex.org/ontology/hasBestOaLocation> a owl:ObjectProperty;
+  rdfs:label "hasBestOaLocation"@en .
+
+<https://semopenalex.org/ontology/hasAssociatedInstitution> a owl:ObjectProperty;
+  rdfs:label "has associated institution"@en .
+
+<https://semopenalex.org/ontology/oaUrl> a owl:DatatypeProperty;
+  rdfs:label "oa url"@en .
+
+<https://semopenalex.org/ontology/alternativeName> a owl:DatatypeProperty;
+  rdfs:label "alternative name"@en .
+
+<http://prismstandard.org/namespaces/basic/2.0/publicationDate> a owl:DatatypeProperty;
+  rdfs:label "publication date"@en .
+
+<https://semopenalex.org/ontology/worksCount> a owl:DatatypeProperty;
+  rdfs:label "worksCount" .
+
+<https://semopenalex.org/ontology/umlsAui> a owl:DatatypeProperty;
+  rdfs:label "umls aui"@en .
+
+<https://semopenalex.org/ontology/hasOrganization> a owl:ObjectProperty;
+  rdfs:label "has organizsation"@en .
+
+<http://purl.org/spar/fabio/hasPubMedCentralId> a owl:DatatypeProperty;
+  rdfs:label "has pubmed central id"@en .
+
+<https://semopenalex.org/ontology/isParatext> a owl:DatatypeProperty;
+  rdfs:label "is paratext"@en .
+
+<https://semopenalex.org/ontology/hasConceptScore> a owl:ObjectProperty;
+  rdfs:label "has concept score"@en .
+
+<https://semopenalex.org/ontology/Geo> a owl:Class;
+  rdfs:label "Geo"@en .
+
+<https://dbpedia.org/ontology/location> a owl:ObjectProperty;
+  rdfs:label "location"@en .
+
+<https://semopenalex.org/ontology/sourceType> a owl:DatatypeProperty;
+  rdfs:label "sourceType"@en .
+
+<https://semopenalex.org/ontology/hasParentPublisher> a owl:ObjectProperty;
+  rdfs:label "hasParentPublisher"@en .
+
+<https://semopenalex.org/ontology/level> a owl:DatatypeProperty;
+  rdfs:label "level"@en .
+
+<http://purl.org/spar/bido/h-index> a owl:DatatypeProperty;
+  rdfs:label "h-index"@en .
+
+<https://semopenalex.org/ontology/ror> a owl:DatatypeProperty;
+  rdfs:label "ror"@en .
+
+<https://dbpedia.org/property/scopus> a owl:DatatypeProperty;
+  rdfs:label "scopes"@en .
+
+dct:created a owl:DatatypeProperty;
+  rdfs:label "created" .
+
+<https://semopenalex.org/ontology/apcUsd> a owl:DatatypeProperty;
+  rdfs:comment "Source's article processing charge in US Dollars, if available from DOAJ"@en;
+  rdfs:label "apcUsd"@en .
+
+<https://semopenalex.org/ontology/hasIssue> a owl:DatatypeProperty;
+  rdfs:label "has issue"@en .
+
+skos:note a owl:DatatypeProperty;
+  rdfs:label "note" .
+
+<http://prismstandard.org/namespaces/basic/2.0/doi> a owl:DatatypeProperty;
+  rdfs:label "doi"@en .
+
+<http://www.geonames.org/ontology#countryCode> a owl:DatatypeProperty;
+  rdfs:label "country code"@en .
+
+<https://semopenalex.org/ontology/hasSource> a owl:ObjectProperty;
+  rdfs:label "has source"@en .
+
+<https://dbpedia.org/property/countryCode> a owl:DatatypeProperty;
+  rdfs:label "country code"@en, "country code" .
+
+<https://semopenalex.org/ontology/rorType> a owl:DatatypeProperty;
+  rdfs:label "ror type"@en .
+
+<https://semopenalex.org/ontology/hasVersion> a owl:DatatypeProperty;
+  rdfs:label "has version"@en .
+
+<https://dbpedia.org/property/twitter> a owl:DatatypeProperty;
+  rdfs:label "twitter"@en .
+
+<https://semopenalex.org/ontology/countsByYear> a owl:ObjectProperty;
+  rdfs:label "counts by year"@en .
+
+<http://prismstandard.org/namespaces/basic/2.0/endingPage> a owl:DatatypeProperty;
+  rdfs:label "ending page"@en .
+
+<https://semopenalex.org/ontology/hasPrimaryLocation> a owl:ObjectProperty;
+  rdfs:label "has primary location"@en .
+
+<https://semopenalex.org/ontology/hasVolume> a owl:DatatypeProperty;
+  rdfs:label "has volume"@en .
+
+<https://dbpedia.org/property/region> a owl:DatatypeProperty;
+  rdfs:label "region"@en .
+
+<https://semopenalex.org/ontology/position> a owl:DatatypeProperty;
+  rdfs:label "position"@en .
+
+<https://semopenalex.org/ontology/grantsCount> a owl:DatatypeProperty;
+  rdfs:label "grantsCount"@en .
+
+<https://semopenalex.org/ontology/hasHostOrganization> a owl:ObjectProperty;
+  rdfs:label "hasHostOrganization"@en .
+
+<https://semopenalex.org/ontology/imageThumbnail> a owl:DatatypeProperty;
+  rdfs:label "image thumbnail"@en .
+
+<https://semopenalex.org/ontology/score> a owl:DatatypeProperty;
+  rdfs:label "score"@en .
+
+<https://semopenalex.org/ontology/hasConcept> a owl:ObjectProperty;
+  rdfs:label "has concept"@en, "has concept" .
+
+<https://semopenalex.org/ontology/magId> a owl:DatatypeProperty;
+  rdfs:label "mag id"@en .
+
+<http://purl.org/spar/fabio/hasPubMedId> a owl:DatatypeProperty;
+  rdfs:label "has pubmed id"@en .
+
+<https://semopenalex.org/ontology/hasRelatedWork> a owl:ObjectProperty;
+  rdfs:label "has related work"@en .
+
+<https://semopenalex.org/ontology/2YrMeanCitedness> a owl:DatatypeProperty;
+  rdfs:label "2YrMeanCitedness"@en, "2 year mean citedness"@ru, "2YrMeanCitedness" .
+
+<https://semopenalex.org/ontology/umlsCui> a owl:DatatypeProperty;
+  rdfs:label "umls cui"@en .
+
+<https://semopenalex.org/ontology/citedByCount> a owl:DatatypeProperty;
+  rdfs:label "citedByCount" .
+
+skos:related a owl:ObjectProperty;
+  rdfs:label "related" .
+
+dct:license a owl:DatatypeProperty;
+  rdfs:label "license"@en .
+
+<http://purl.org/spar/fabio/hasIssnL> a owl:DatatypeProperty;
+  rdfs:label "has issn"@en .
+
+skos:ConceptShape a sh:NodeShape;
+  sh:property [ a sh:PropertyShape;
+      sh:path skos:broader;
+      sh:class skos:Concept
+    ], [ a sh:PropertyShape;
+      sh:path rdfs:seeAlso;
+      sh:class <http://purl.org/spar/fabio/WikipediaEntry>
+    ], [ a sh:PropertyShape;
+      sh:datatype xsd:string;
+      sh:path skos:prefLabel
+    ], [ a sh:PropertyShape;
+      sh:datatype xsd:string;
+      sh:path skos:note
+    ], [ a sh:PropertyShape;
+      sh:path skos:related;
+      sh:class skos:Concept
+    ];
+  sh:targetClass skos:Concept .
+
+<https://orcid.org/0000-0001-5458-8645> a <http://xmlns.com/foaf/0.1/Person>;
+  <http://xmlns.com/foaf/0.1/homepage> <https://www.aifb.kit.edu/web/Michael_Färber>;
+  rdfs:label "Michael Färber";
+  <http://xmlns.com/foaf/0.1/mbox> <mailto:michael.faerber@tu-dresden.de> .
+
+<https://orcid.org/0000-0002-5080-3587> a <http://xmlns.com/foaf/0.1/Person>;
+  rdfs:label "Johan Krause";
+  <http://xmlns.com/foaf/0.1/mbox> <mailto:johan.krause@student.kit.edu> .
+
+<https://orcid.org/0000-0002-7561-7000> a <http://xmlns.com/foaf/0.1/Person>;
+  rdfs:label "Peter Haase";
+  <http://xmlns.com/foaf/0.1/mbox> <mailto:ph@metaphacts.com> .
+
+<https://orcid.org/0000-0002-9098-5389> a <http://xmlns.com/foaf/0.1/Person>;
+  rdfs:label "David Lamprecht";
+  <http://xmlns.com/foaf/0.1/mbox> <mailto:dl@metaphacts.com> .
+
+<https://orcid.org/0009-0009-4338-0983> a <http://xmlns.com/foaf/0.1/Person>;
+  rdfs:label "Linn Aung";
+  <http://xmlns.com/foaf/0.1/mbox> <mailto:la@metaphacts.com> .
+
+<https://semopenalex.org/ontology/> a owl:Ontology;
+  dct:issued "2022-05-12T00:00:00Z"^^xsd:dateTime;
+  dct:title "SemOpenAlex Ontology"@en;
+  dct:creator <https://orcid.org/0000-0001-5458-8645>, <https://orcid.org/0000-0002-5080-3587>,
+    <https://orcid.org/0000-0002-7561-7000>, <https://orcid.org/0000-0002-9098-5389>,
+    <https://orcid.org/0009-0009-4338-0983>;
+  dct:description "The SemOpenAlex Ontology is an OWL ontology, representing scientific works such as publications, as well as authors, institutions, publishers, funders, sources, concepts and relations between them, i.e. citations, affiliations, funding details, authorship, publication locations and their sources."@en;
+  rdfs:label "SemOpenAlex Ontology"@en;
+  dct:publisher <http://dbpedia.org/resource/Karlsruhe_Institute_of_Technology>, <http://www.wikidata.org/entity/Q22132500>,
+    <https://www.wikidata.org/wiki/Q158158>;
+  dct:modified "2024-12-18T00:00:00Z"^^xsd:dateTime;
+  dct:created "2022-05-12T00:00:00Z"^^xsd:dateTime;
+  dct:license <http://creativecommons.org/publicdomain/zero/1.0/>;
+  <http://purl.org/ontology/bibo/status> <http://purl.org/spar/pso/published>;
+  dct:contributor "dl@metaphacts.com";
+  owl:versionInfo "4.0.0" .
+
+<https://semopenalex.org/ontology/AuthorShape> a sh:NodeShape;
+  sh:property [ a sh:PropertyShape;
+      sh:datatype xsd:float;
+      sh:path <https://semopenalex.org/ontology/2YrMeanCitedness>
+    ], [ a sh:PropertyShape;
+      sh:datatype xsd:integer;
+      sh:path <http://purl.org/spar/bido/h-index>
+    ], [ a sh:PropertyShape;
+      sh:datatype xsd:date;
+      sh:path dct:created
+    ], [ a sh:PropertyShape;
+      sh:datatype xsd:integer;
+      sh:path <https://semopenalex.org/ontology/worksCount>
+    ], [ a sh:PropertyShape;
+      sh:datatype xsd:string;
+      sh:path <https://semopenalex.org/ontology/alternativeName>
+    ], [ a sh:PropertyShape;
+      sh:datatype xsd:string;
+      sh:path <https://dbpedia.org/property/twitter>
+    ], [ a sh:PropertyShape;
+      sh:datatype xsd:string;
+      sh:path <http://xmlns.com/foaf/0.1/name>
+    ], [ a sh:PropertyShape;
+      sh:datatype xsd:integer;
+      sh:path <https://semopenalex.org/ontology/i10Index>
+    ], [ a sh:PropertyShape;
+      sh:datatype xsd:string;
+      sh:path <https://dbpedia.org/property/scopus>
+    ], [ a sh:PropertyShape;
+      sh:datatype xsd:integer;
+      sh:path <https://semopenalex.org/ontology/citedByCount>
+    ], [ a sh:PropertyShape;
+      sh:datatype xsd:string;
+      sh:path <https://dbpedia.org/ontology/orcidId>
+    ], [ a sh:PropertyShape;
+      sh:path <https://semopenalex.org/ontology/countsByYear>;
+      sh:class <https://semopenalex.org/ontology/CountsByYear>
+    ], [ a sh:PropertyShape;
+      sh:datatype xsd:integer;
+      sh:path <https://semopenalex.org/ontology/magId>
+    ], [ a sh:PropertyShape;
+      sh:datatype xsd:date;
+      sh:path dct:modified
+    ], [ a sh:PropertyShape;
+      sh:path <http://www.w3.org/ns/org#memberOf>;
+      sh:class <https://semopenalex.org/ontology/Institution>
+    ], [
+      sh:path <https://semopenalex.org/ontology/hasAffiliation>;
+      sh:class <https://semopenalex.org/ontology/Institution>
+    ];
+  sh:targetClass <https://semopenalex.org/ontology/Author> .
+
+<https://semopenalex.org/ontology/AuthorshipShape> a sh:NodeShape;
+  sh:property [ a sh:PropertyShape;
+      sh:path <https://semopenalex.org/ontology/hasOrganization>;
+      sh:class <https://semopenalex.org/ontology/Institution>
+    ], [ a sh:PropertyShape;
+      sh:datatype xsd:boolean;
+      sh:path <https://semopenalex.org/ontology/isCorresponding>
+    ], [ a sh:PropertyShape;
+      sh:path <https://semopenalex.org/ontology/hasAuthor>;
+      sh:class <https://semopenalex.org/ontology/Author>
+    ], [ a sh:PropertyShape;
+      sh:datatype xsd:integer;
+      sh:path <https://semopenalex.org/ontology/position>
+    ], [ a sh:PropertyShape;
+      sh:datatype xsd:string;
+      sh:path <https://semopenalex.org/ontology/rawAffiliation>
+    ];
+  sh:targetClass <https://semopenalex.org/ontology/Authorship> .
+
+<https://semopenalex.org/ontology/ConceptShape> a sh:NodeShape;
+  sh:property [ a sh:PropertyShape;
+      sh:path <https://semopenalex.org/ontology/countsByYear>;
+      sh:class <https://semopenalex.org/ontology/CountsByYear>
+    ], [ a sh:PropertyShape;
+      sh:datatype xsd:string;
+      sh:path <http://xmlns.com/foaf/0.1/depiction>
+    ], [ a sh:PropertyShape;
+      sh:datatype xsd:integer;
+      sh:path <https://semopenalex.org/ontology/magId>
+    ], [ a sh:PropertyShape;
+      sh:datatype xsd:string;
+      sh:path <https://semopenalex.org/ontology/umlsCui>
+    ], [ a sh:PropertyShape;
+      sh:datatype xsd:integer;
+      sh:path <https://semopenalex.org/ontology/worksCount>
+    ], [ a sh:PropertyShape;
+      sh:datatype xsd:integer;
+      sh:path <https://semopenalex.org/ontology/level>
+    ], [ a sh:PropertyShape;
+      sh:datatype xsd:string;
+      sh:path <https://semopenalex.org/ontology/umlsAui>
+    ], [ a sh:PropertyShape;
+      sh:datatype xsd:integer;
+      sh:path <https://semopenalex.org/ontology/citedByCount>
+    ], [ a sh:PropertyShape;
+      sh:datatype xsd:date;
+      sh:path dct:created
+    ], [ a sh:PropertyShape;
+      sh:datatype xsd:string;
+      sh:path <https://semopenalex.org/ontology/imageThumbnail>
+    ], [ a sh:PropertyShape;
+      sh:datatype xsd:date;
+      sh:path dct:modified
+    ];
+  sh:targetClass <https://semopenalex.org/ontology/Concept> .
+
+<https://semopenalex.org/ontology/FunderShape> a sh:NodeShape;
+  sh:property [
+      sh:datatype xsd:string;
+      sh:path <https://semopenalex.org/ontology/alternativeName>
+    ], [
+      sh:datatype xsd:date;
+      sh:path dct:created
+    ], [
+      sh:datatype xsd:anyURI;
+      sh:path <https://semopenalex.org/ontology/ror>
+    ], [
+      sh:datatype xsd:string;
+      sh:path <https://dbpedia.org/property/countryCode>
+    ], [
+      sh:datatype xsd:integer;
+      sh:path <https://semopenalex.org/ontology/worksCount>
+    ], [
+      sh:datatype xsd:string;
+      sh:path <http://xmlns.com/foaf/0.1/name>
+    ], [
+      sh:datatype xsd:integer;
+      sh:path <https://semopenalex.org/ontology/citedByCount>
+    ], [
+      sh:datatype xsd:string;
+      sh:path dct:description
+    ], [
+      sh:datatype xsd:float;
+      sh:path <https://semopenalex.org/ontology/2YrMeanCitedness>
+    ], [
+      sh:datatype xsd:anyURI;
+      sh:path <http://prismstandard.org/namespaces/basic/2.0/doi>
+    ], [
+      sh:datatype xsd:string;
+      sh:path <https://semopenalex.org/ontology/crossref>
+    ], [
+      sh:datatype xsd:integer;
+      sh:path <http://purl.org/spar/bido/h-index>
+    ], [
+      sh:datatype xsd:integer;
+      sh:path <https://semopenalex.org/ontology/i10Index>
+    ], [
+      sh:path <https://semopenalex.org/ontology/countsByYear>;
+      sh:class <https://semopenalex.org/ontology/CountsByYear>
+    ], [
+      sh:datatype xsd:integer;
+      sh:path <https://semopenalex.org/ontology/grantsCount>
+    ], [
+      sh:datatype xsd:date;
+      sh:path dct:modified
+    ], [
+      sh:datatype xsd:anyURI;
+      sh:path <http://xmlns.com/foaf/0.1/homepage>
+    ];
+  sh:targetClass <https://semopenalex.org/ontology/Funder> .
+
+<https://semopenalex.org/ontology/GeoShape> a sh:NodeShape;
+  sh:property [ a sh:PropertyShape;
+      sh:datatype xsd:string;
+      sh:path <https://dbpedia.org/property/city>
+    ], [ a sh:PropertyShape;
+      sh:datatype xsd:string;
+      sh:path <https://dbpedia.org/property/region>
+    ], [ a sh:PropertyShape;
+      sh:datatype xsd:float;
+      sh:path <http://www.w3.org/2003/01/geo/wgs84_pos#long>
+    ], [ a sh:PropertyShape;
+      sh:datatype xsd:string;
+      sh:path <https://dbpedia.org/property/countryCode>
+    ], [ a sh:PropertyShape;
+      sh:datatype xsd:string;
+      sh:path <https://dbpedia.org/property/country>
+    ], [ a sh:PropertyShape;
+      sh:datatype xsd:float;
+      sh:path <http://www.w3.org/2003/01/geo/wgs84_pos#lat>
+    ];
+  sh:targetClass <https://semopenalex.org/ontology/Geo> .
+
+<https://semopenalex.org/ontology/InstitutionShape> a sh:NodeShape;
+  sh:property [ a sh:PropertyShape;
+      sh:datatype xsd:date;
+      sh:path dct:modified
+    ], [ a sh:PropertyShape;
+      sh:datatype xsd:integer;
+      sh:path <https://semopenalex.org/ontology/magId>
+    ], [ a sh:PropertyShape;
+      sh:datatype xsd:string;
+      sh:path <https://dbpedia.org/ontology/alternativeName>
+    ], [ a sh:PropertyShape;
+      sh:datatype xsd:anyURI;
+      sh:path <http://xmlns.com/foaf/0.1/homepage>
+    ], [ a sh:PropertyShape;
+      sh:datatype xsd:string;
+      sh:path <http://xmlns.com/foaf/0.1/name>
+    ], [ a sh:PropertyShape;
+      sh:datatype xsd:string;
+      sh:path <https://dbpedia.org/property/countryCode>
+    ], [ a sh:PropertyShape;
+      sh:path <https://semopenalex.org/ontology/hasAssociatedInstitution>;
+      sh:class <https://semopenalex.org/ontology/Institution>
+    ], [ a sh:PropertyShape;
+      sh:path <https://dbpedia.org/ontology/location>;
+      sh:class <https://semopenalex.org/ontology/Geo>
+    ], [ a sh:PropertyShape;
+      sh:datatype xsd:string;
+      sh:path <https://semopenalex.org/ontology/rorType>
+    ], [ a sh:PropertyShape;
+      sh:path rdfs:seeAlso;
+      sh:class <http://purl.org/spar/fabio/WikipediaEntry>
+    ], [ a sh:PropertyShape;
+      sh:datatype xsd:string;
+      sh:path <http://xmlns.com/foaf/0.1/depiction>
+    ], [ a sh:PropertyShape;
+      sh:datatype xsd:anyURI;
+      sh:path <https://semopenalex.org/ontology/ror>
+    ], [ a sh:PropertyShape;
+      sh:datatype xsd:date;
+      sh:path dct:created
+    ], [ a sh:PropertyShape;
+      sh:datatype xsd:integer;
+      sh:path <https://semopenalex.org/ontology/worksCount>
+    ], [ a sh:PropertyShape;
+      sh:datatype xsd:string;
+      sh:path <https://semopenalex.org/ontology/imageThumbnail>
+    ], [ a sh:PropertyShape;
+      sh:datatype xsd:integer;
+      sh:path <https://semopenalex.org/ontology/citedByCount>
+    ], [ a sh:PropertyShape;
+      sh:datatype xsd:string;
+      sh:path <https://dbpedia.org/property/acronym>
+    ], [ a sh:PropertyShape;
+      sh:datatype xsd:string;
+      sh:path <https://semopenalex.org/ontology/grid>
+    ];
+  sh:targetClass <https://semopenalex.org/ontology/Institution> .
+
+<https://semopenalex.org/ontology/LocationShape> a sh:NodeShape;
+  sh:property [ a sh:PropertyShape;
+      sh:path <https://semopenalex.org/ontology/hasSource>;
+      sh:class <https://semopenalex.org/ontology/Source>
+    ], [ a sh:PropertyShape;
+      sh:datatype xsd:string;
+      sh:path <http://purl.org/spar/fabio/hasURL>
+    ], [ a sh:PropertyShape;
+      sh:datatype xsd:string;
+      sh:path <https://semopenalex.org/ontology/hasVersion>
+    ], [ a sh:PropertyShape;
+      sh:datatype xsd:boolean;
+      sh:path <https://semopenalex.org/ontology/isOa>
+    ], [ a sh:PropertyShape;
+      sh:datatype xsd:string;
+      sh:path dct:license
+    ], [ a sh:PropertyShape;
+      sh:datatype xsd:string;
+      sh:path <https://semopenalex.org/ontology/pdfUrl>
+    ];
+  sh:targetClass <https://semopenalex.org/ontology/Location> .
+
+<https://semopenalex.org/ontology/OpenAccessShape> a sh:NodeShape;
+  sh:property [ a sh:PropertyShape;
+      sh:datatype xsd:string;
+      sh:path <https://semopenalex.org/ontology/oaStatus>
+    ], [ a sh:PropertyShape;
+      sh:datatype xsd:boolean;
+      sh:path <https://semopenalex.org/ontology/isOa>
+    ], [ a sh:PropertyShape;
+      sh:datatype xsd:string;
+      sh:path <https://semopenalex.org/ontology/oaUrl>
+    ];
+  sh:targetClass <https://semopenalex.org/ontology/OpenAccess> .
+
+<https://semopenalex.org/ontology/PublisherShape> a sh:NodeShape;
+  sh:property [
+      sh:datatype xsd:string;
+      sh:path <https://semopenalex.org/ontology/ror>
+    ], [
+      sh:datatype xsd:integer;
+      sh:path <https://semopenalex.org/ontology/i10Index>
+    ], [
+      sh:path <https://semopenalex.org/ontology/countsByYear>;
+      sh:class <https://semopenalex.org/ontology/CountsByYear>
+    ], [
+      sh:datatype xsd:date;
+      sh:path dct:created
+    ], [
+      sh:datatype xsd:string;
+      sh:path <http://xmlns.com/foaf/0.1/name>
+    ], [
+      sh:datatype xsd:float;
+      sh:path <https://semopenalex.org/ontology/2YrMeanCitedness>
+    ], [
+      sh:path <https://semopenalex.org/ontology/hasParentPublisher>;
+      sh:class <https://semopenalex.org/ontology/Publisher>
+    ], [
+      sh:datatype xsd:integer;
+      sh:path <http://purl.org/spar/bido/h-index>
+    ], [
+      sh:datatype xsd:integer;
+      sh:path <https://semopenalex.org/ontology/citedByCount>
+    ], [
+      sh:datatype xsd:string;
+      sh:path <https://dbpedia.org/ontology/alternativeName>
+    ], [
+      sh:datatype xsd:date;
+      sh:path dct:modified
+    ], [
+      sh:datatype xsd:integer;
+      sh:path <https://semopenalex.org/ontology/worksCount>
+    ], [
+      sh:datatype xsd:integer;
+      sh:path <https://semopenalex.org/ontology/level>
+    ], [
+      sh:datatype xsd:string;
+      sh:path <http://www.geonames.org/ontology#countryCode>
+    ];
+  sh:targetClass <https://semopenalex.org/ontology/Publisher> .
+
+<https://semopenalex.org/ontology/SourceShape> a sh:NodeShape;
+  sh:property [ a sh:PropertyShape;
+      sh:datatype xsd:float;
+      sh:path <https://semopenalex.org/ontology/2YrMeanCitedness>
+    ], [ a sh:PropertyShape;
+      sh:datatype xsd:boolean;
+      sh:path <https://semopenalex.org/ontology/isInDoaj>
+    ], [ a sh:PropertyShape;
+      sh:path <https://semopenalex.org/ontology/hasHostOrganization>;
+      sh:class <https://semopenalex.org/ontology/Institution>
+     ], [ a sh:PropertyShape;
+      sh:path <https://semopenalex.org/ontology/hasHostOrganization>;
+      sh:class <https://semopenalex.org/ontology/Publisher>
+    ], [ a sh:PropertyShape;
+      sh:datatype xsd:integer;
+      sh:path <https://semopenalex.org/ontology/citedByCount>
+    ], [ a sh:PropertyShape;
+      sh:datatype xsd:integer;
+      sh:path <https://semopenalex.org/ontology/i10Index>
+    ], [ a sh:PropertyShape;
+      sh:path <https://semopenalex.org/ontology/countsByYear>;
+      sh:class <https://semopenalex.org/ontology/CountsByYear>
+    ], [ a sh:PropertyShape;
+      sh:datatype xsd:string;
+      sh:path <https://semopenalex.org/ontology/sourceType>
+    ], [ a sh:PropertyShape;
+      sh:datatype xsd:string;
+      sh:path <https://semopenalex.org/ontology/abbreviatedName>
+    ], [ a sh:PropertyShape;
+      sh:datatype xsd:integer;
+      sh:path <http://purl.org/spar/bido/h-index>
+    ], [ a sh:PropertyShape;
+      sh:datatype xsd:string;
+      sh:path <http://prismstandard.org/namespaces/basic/2.0/issn>
+    ], [ a sh:PropertyShape;
+      sh:datatype xsd:string;
+      sh:path <https://dbpedia.org/ontology/alternativeName>
+    ], [ a sh:PropertyShape;
+      sh:datatype xsd:string;
+      sh:path <http://xmlns.com/foaf/0.1/name>
+    ], [ a sh:PropertyShape;
+      sh:datatype xsd:boolean;
+      sh:path <https://semopenalex.org/ontology/isOa>
+    ], [ a sh:PropertyShape;
+      sh:datatype xsd:string;
+      sh:path dct:publisher
+    ], [ a sh:PropertyShape;
+      sh:datatype xsd:string;
+      sh:path <http://www.geonames.org/ontology#countryCode>
+    ], [ a sh:PropertyShape;
+      sh:datatype xsd:string;
+      sh:path <https://semopenalex.org/ontology/fatcatId>
+    ], [ a sh:PropertyShape;
+      sh:datatype xsd:integer;
+      sh:path <https://semopenalex.org/ontology/apcUsd>
+    ], [ a sh:PropertyShape;
+      sh:datatype xsd:string;
+      sh:path <http://purl.org/spar/fabio/hasIssnL>
+    ], [ a sh:PropertyShape;
+      sh:datatype xsd:anyURI;
+      sh:path <http://xmlns.com/foaf/0.1/homepage>
+    ];
+  sh:targetClass <https://semopenalex.org/ontology/Source> .
+
+<https://semopenalex.org/ontology/WorkShape> a sh:NodeShape;
+  sh:property [ a sh:PropertyShape;
+      sh:path <https://semopenalex.org/ontology/hasBestOaLocation>;
+      sh:class <https://semopenalex.org/ontology/Location>
+    ], [ a sh:PropertyShape;
+      sh:datatype xsd:string;
+      sh:path <http://prismstandard.org/namespaces/basic/2.0/startingPage>
+    ], [ a sh:PropertyShape;
+      sh:datatype xsd:date;
+      sh:path <http://prismstandard.org/namespaces/basic/2.0/publicationDate>
+    ], [ a sh:PropertyShape;
+      sh:datatype xsd:string;
+      sh:path <https://semopenalex.org/ontology/hasVolume>
+    ], [ a sh:PropertyShape;
+      sh:datatype xsd:string;
+      sh:path <https://semopenalex.org/ontology/crossrefType>
+    ], [ a sh:PropertyShape;
+      sh:path <https://semopenalex.org/ontology/hasFunder>;
+      sh:class <https://semopenalex.org/ontology/Funder>
+    ], [ a sh:PropertyShape;
+      sh:datatype xsd:integer;
+      sh:path <https://semopenalex.org/ontology/citedByCount>
+    ], [ a sh:PropertyShape;
+      sh:path <https://semopenalex.org/ontology/countsByYear>;
+      sh:class <https://semopenalex.org/ontology/CountsByYear>
+    ], [ a sh:PropertyShape;
+      sh:datatype xsd:boolean;
+      sh:path <https://semopenalex.org/ontology/isRetracted>
+    ], [ a sh:PropertyShape;
+      sh:path <https://semopenalex.org/ontology/hasLocation>;
+      sh:class <https://semopenalex.org/ontology/Location>
+    ], [ a sh:PropertyShape;
+      sh:datatype xsd:string;
+      sh:path dct:title
+    ], [ a sh:PropertyShape;
+      sh:datatype xsd:string;
+      sh:path <https://semopenalex.org/ontology/hasIssue>
+    ], [ a sh:PropertyShape;
+      sh:datatype xsd:string;
+      sh:path dct:abstract
+    ], [ a sh:PropertyShape;
+      sh:datatype xsd:integer;
+      sh:path <https://semopenalex.org/ontology/magId>
+    ], [ a sh:PropertyShape;
+      sh:datatype xsd:string;
+      sh:path <http://purl.org/spar/fabio/hasPubMedId>
+    ], [ a sh:PropertyShape;
+      sh:path dct:creator;
+      sh:class <https://semopenalex.org/ontology/Author>
+    ], [ a sh:PropertyShape;
+      sh:path <http://purl.org/spar/cito/cites>;
+      sh:class <https://semopenalex.org/ontology/Work>
+    ], [ a sh:PropertyShape;
+      sh:path <https://semopenalex.org/ontology/hasRelatedWork>;
+      sh:class <https://semopenalex.org/ontology/Work>
+    ], [ a sh:PropertyShape;
+      sh:path <https://semopenalex.org/ontology/hasAuthorship>;
+      sh:class <https://semopenalex.org/ontology/Authorship>
+    ], [ a sh:PropertyShape;
+      sh:datatype xsd:integer;
+      sh:path <http://purl.org/spar/fabio/hasPublicationYear>
+    ], [ a sh:PropertyShape;
+      sh:datatype xsd:date;
+      sh:path dct:created
+    ], [ a sh:PropertyShape;
+      sh:datatype xsd:string;
+      sh:path <http://purl.org/spar/fabio/hasPubMedCentralId>
+    ], [ a sh:PropertyShape;
+      sh:path <https://semopenalex.org/ontology/hasOpenAccess>;
+      sh:class <https://semopenalex.org/ontology/OpenAccess>
+    ], [ a sh:PropertyShape;
+      sh:datatype xsd:anyURI;
+      sh:path <http://prismstandard.org/namespaces/basic/2.0/doi>
+    ], [ a sh:PropertyShape;
+      sh:path <https://semopenalex.org/ontology/hasPrimaryLocation>;
+      sh:class <https://semopenalex.org/ontology/Location>
+    ], [ a sh:PropertyShape;
+      sh:datatype xsd:string;
+      sh:path <http://prismstandard.org/namespaces/basic/2.0/endingPage>
+    ], [ a sh:PropertyShape;
+      sh:datatype xsd:string;
+      sh:path <https://semopenalex.org/ontology/workType>
+    ], [ a sh:PropertyShape;
+      sh:datatype xsd:date;
+      sh:path dct:modified
+    ], [ a sh:PropertyShape;
+      sh:datatype xsd:boolean;
+      sh:path <https://semopenalex.org/ontology/isParatext>
+    ], [ a sh:PropertyShape;
+      sh:datatype xsd:string;
+      sh:path <https://dbpedia.org/property/countryCode>
+    ], [
+      sh:path <https://semopenalex.org/ontology/hasMesh>;
+      sh:class <http://id.nlm.nih.gov/mesh/vocab#TopicalDescriptor>
+    ], [
+      sh:path <https://semopenalex.org/ontology/hasApcList>;
+      sh:class <https://semopenalex.org/ontology/ArticleProcessingCharge>
+    ], [
+      sh:path <https://semopenalex.org/ontology/hasPrimaryTopic>;
+      sh:class <https://semopenalex.org/ontology/Topic>
+    ], [
+      sh:datatype xsd:string;
+      sh:path <https://semopenalex.org/ontology/metadataLanguage>
+    ], [
+      sh:datatype xsd:string;
+      sh:path <https://semopenalex.org/ontology/indexedIn>
+    ], [
+      sh:path <https://semopenalex.org/ontology/hasKeyword>;
+      sh:class <https://semopenalex.org/ontology/Keyword>
+    ], [
+      sh:datatype xsd:integer;
+      sh:path <https://semopenalex.org/ontology/countriesDistinctCount>
+    ], [
+      sh:path <https://semopenalex.org/ontology/hasSustainableDevelopmentGoal>;
+      sh:class <http://metadata.un.org/sdg/ontology#Goal>
+    ], [
+      sh:path <https://semopenalex.org/ontology/hasTopic>;
+      sh:class <https://semopenalex.org/ontology/Topic>
+    ], [
+      sh:datatype xsd:integer;
+      sh:path <https://semopenalex.org/ontology/institutionsDistinctCount>
+    ], [
+      sh:path <https://semopenalex.org/ontology/hasConcept>;
+      sh:class <https://semopenalex.org/ontology/Concept>
+    ];
+  sh:targetClass <https://semopenalex.org/ontology/Work> .
+
+<https://semopenalex.org/ontology/Domain> a owl:Class;
+  rdfs:subClassOf skos:Concept;
+  rdfs:label "Domain"@en .
+
+<https://semopenalex.org/ontology/Topic> a owl:Class;
+  rdfs:subClassOf skos:Concept;
+  rdfs:label "Topic"@en .
+
+<https://semopenalex.org/ontology/hasTopic> a owl:ObjectProperty;
+  rdfs:label "hasTopic" .
+
+<https://semopenalex.org/ontology/Subfield> a owl:Class;
+  rdfs:subClassOf skos:Concept;
+  rdfs:label "Subfield"@en .
+
+<https://semopenalex.org/ontology/Field> a owl:Class;
+  rdfs:subClassOf skos:Concept;
+  rdfs:label "Field"@en .
+
+<https://semopenalex.org/ontology/FieldShape> a sh:NodeShape;
+  sh:property [
+      sh:datatype xsd:string;
+      sh:path skos:note
+    ], [
+      sh:datatype xsd:string;
+      sh:path skos:prefLabel
+    ], [
+      sh:datatype xsd:date;
+      sh:path dct:created
+    ], [
+      sh:datatype xsd:string;
+      sh:path <https://semopenalex.org/ontology/worksCount>
+    ], [
+      sh:datatype xsd:integer;
+      sh:path <https://semopenalex.org/ontology/citedByCount>
+    ], [
+      sh:path skos:related;
+      sh:class <https://semopenalex.org/ontology/Field>
+    ], [
+      sh:datatype xsd:date;
+      sh:path dct:modified
+    ], [
+      sh:datatype xsd:string;
+      sh:path skos:altLabel
+    ], [
+      sh:path skos:broader;
+      sh:class <https://semopenalex.org/ontology/Domain>
+    ];
+  sh:targetClass <https://semopenalex.org/ontology/Field> .
+
+<https://semopenalex.org/ontology/SubfieldShape> a sh:NodeShape;
+  sh:property [
+      sh:datatype xsd:string;
+      sh:path skos:prefLabel
+    ], [
+      sh:path skos:broader;
+      sh:class <https://semopenalex.org/ontology/Field>
+    ], [
+      sh:datatype xsd:string;
+      sh:path skos:note
+    ], [
+      sh:datatype xsd:date;
+      sh:path dct:created
+    ], [
+      sh:datatype xsd:date;
+      sh:path dct:modified
+    ], [
+      sh:path skos:related;
+      sh:class <https://semopenalex.org/ontology/Subfield>
+    ], [
+      sh:datatype xsd:integer;
+      sh:path <https://semopenalex.org/ontology/worksCount>
+    ], [
+      sh:datatype xsd:integer;
+      sh:path <https://semopenalex.org/ontology/citedByCount>
+    ];
+  sh:targetClass <https://semopenalex.org/ontology/Subfield> .
+
+<https://semopenalex.org/ontology/TopicShape> a sh:NodeShape;
+  sh:property [
+      sh:datatype xsd:string;
+      sh:path skos:note
+    ], [
+      sh:datatype xsd:date;
+      sh:path dct:created
+    ], [
+      sh:datatype xsd:integer;
+      sh:path <https://semopenalex.org/ontology/citedByCount>
+    ], [
+      sh:datatype xsd:date;
+      sh:path dct:modified
+    ], [
+      sh:datatype xsd:integer;
+      sh:path <https://semopenalex.org/ontology/worksCount>
+    ], [
+      sh:path skos:broader;
+      sh:class <https://semopenalex.org/ontology/Subfield>
+    ], [
+      sh:datatype xsd:string;
+      sh:path skos:prefLabel
+    ], [
+      sh:path <https://semopenalex.org/ontology/hasKeyword>;
+      sh:class <https://semopenalex.org/ontology/Keyword>
+    ], [
+      sh:path skos:related;
+      sh:class <https://semopenalex.org/ontology/Topic>
+    ];
+  sh:targetClass <https://semopenalex.org/ontology/Topic> .
+
+<https://semopenalex.org/ontology/Keyword> a owl:Class;
+  rdfs:subClassOf skos:Concept;
+  rdfs:label "Keyword"@en .
+
+<https://semopenalex.org/ontology/hasKeyword> a owl:ObjectProperty;
+  rdfs:label "hasKeyword" .
+
+<https://semopenalex.org/ontology/KeywordShape> a sh:NodeShape;
+  sh:property [
+      sh:datatype xsd:string;
+      sh:path skos:prefLabel
+    ];
+  sh:targetClass <https://semopenalex.org/ontology/Keyword> .
+
+<https://semopenalex.org/ontology/pdfUrl> a owl:DatatypeProperty;
+  rdfs:label "pdfUrl"@en .
+
+<https://semopenalex.org/ontology/hasPrimaryTopic> a owl:ObjectProperty;
+  rdfs:label "hasPrimaryTopic" .
+
+<https://semopenalex.org/ontology/hasSustainableDevelopmentGoal> a owl:ObjectProperty;
+  rdfs:label "hasSustainableDevelopmentGoal" .
+
+<https://semopenalex.org/ontology/countriesDistinctCount> a owl:DatatypeProperty;
+  rdfs:label "countries distinct count"@en .
+
+<https://semopenalex.org/ontology/institutionsDistinctCount> a owl:DatatypeProperty;
+  rdfs:label "institutions distinct count"@en .
+
+<https://semopenalex.org/ontology/metadataLanguage> a owl:DatatypeProperty;
+  rdfs:label "metadata language"@en .
+
+<https://semopenalex.org/ontology/hasMesh> a owl:ObjectProperty;
+  rdfs:label "hasMesh" .
+
+<https://semopenalex.org/ontology/indexedIn> a owl:DatatypeProperty;
+  rdfs:label "indexed in"@en .
+
+<https://semopenalex.org/ontology/ArticleProcessingCharge> a owl:Class;
+  rdfs:label "ArticleProcessingCharge"@en .
+
+<https://semopenalex.org/ontology/hasCurrency> a owl:DatatypeProperty;
+  rdfs:label "has currency"@en .
+
+<https://semopenalex.org/ontology/hasProvenance> a owl:DatatypeProperty;
+  rdfs:label "has provenance"@en .
+
+<https://semopenalex.org/ontology/hasValue> a owl:DatatypeProperty;
+  rdfs:label "has value"@en .
+
+<https://semopenalex.org/ontology/anyRepositoryHasFulltext> a owl:DatatypeProperty;
+  rdfs:label "any repository has fulltext"@en .
+
+<https://semopenalex.org/ontology/abbreviatedName> a owl:DatatypeProperty;
+  rdfs:label "abbreviatedName"@en, "abbreviated name"@ru .
+
+<http://www.geonames.org/ontology#geonamesID> a owl:DatatypeProperty;
+  rdfs:label "genames id"@en .
+
+<http://www.geonames.org/ontology#lat> a owl:DatatypeProperty;
+  rdfs:label "lat"@en .
+
+<http://www.geonames.org/ontology#long> a owl:DatatypeProperty;
+  rdfs:label "long"@en .
+
+<https://semopenalex.org/ontology/hasValueUsd> a owl:DatatypeProperty;
+  rdfs:label "has value usd"@en .
+
+<https://semopenalex.org/ontology/hasApcList> a owl:ObjectProperty;
+  rdfs:label "hasAPCList" .
+
+<https://semopenalex.org/ontology/ArticleProcessingChargeShape> a sh:NodeShape;
+  sh:property [
+      sh:datatype xsd:integer;
+      sh:path <https://semopenalex.org/ontology/hasPriceUsd>
+    ], [
+      sh:datatype xsd:string;
+      sh:path <https://semopenalex.org/ontology/hasProvenance>
+    ], [
+      sh:datatype xsd:string;
+      sh:path <https://semopenalex.org/ontology/hasCurrency>
+    ], [
+      sh:datatype xsd:integer;
+      sh:path <https://semopenalex.org/ontology/hasPrice>
+    ], [
+      sh:datatype xsd:integer;
+      sh:path <https://semopenalex.org/ontology/hasValueUsd>
+    ], [
+      sh:datatype xsd:integer;
+      sh:path <https://semopenalex.org/ontology/hasValue>
+    ];
+  sh:targetClass <https://semopenalex.org/ontology/ArticleProcessingCharge> .
+
+<https://semopenalex.org/ontology/hasApc> a owl:ObjectProperty;
+  rdfs:label "hasAPC" .
+
+<https://semopenalex.org/ontology/hasAffiliation> a owl:ObjectProperty;
+  rdfs:label "hasAffiliation" .
+
+<https://semopenalex.org/ontology/hasChildInstitution> a owl:ObjectProperty;
+  rdfs:label "hasChildInstitution" .
+
+<https://semopenalex.org/ontology/hasParentInstitution> a owl:ObjectProperty;
+  rdfs:label "hasParentInstitution" .
+
+<https://semopenalex.org/ontology/hasPrice> a owl:DatatypeProperty;
+  rdfs:label "has price"@en .
+
+<https://semopenalex.org/ontology/DomainShape> a sh:NodeShape;
+  sh:property [
+      sh:datatype xsd:integer;
+      sh:path <https://semopenalex.org/ontology/worksCount>
+    ], [
+      sh:datatype xsd:integer;
+      sh:path <https://semopenalex.org/ontology/citedByCount>
+    ], [
+      sh:datatype xsd:string;
+      sh:path skos:prefLabel
+    ], [
+      sh:datatype xsd:string;
+      sh:path skos:altLabel
+    ], [
+      sh:datatype xsd:string;
+      sh:path skos:note
+    ], [
+      sh:path skos:related;
+      sh:class <https://semopenalex.org/ontology/Domain>
+    ], [
+      sh:datatype xsd:date;
+      sh:path dct:created
+    ], [
+      sh:datatype xsd:date;
+      sh:path dct:modified
+    ];
+  sh:targetClass <https://semopenalex.org/ontology/Domain> .
+
+<https://semopenalex.org/ontology/hasPriceUsd> a owl:DatatypeProperty;
+  rdfs:label "has price usd"@en .
+
+<http://metadata.un.org/sdg/ontology#Goal> a owl:Class;
+  rdfs:subClassOf skos:Concept;
+  rdfs:label "SustainableDevelopmentGoal"@en .
+
+<http://id.nlm.nih.gov/mesh/vocab#TopicalDescriptor> a owl:Class;
+  rdfs:subClassOf skos:Concept;
+  rdfs:label "TopicalDescriptor"@en .
+
+<https://semopenalex.org/ontology/SustainableDevelopmentGoalShape> a sh:NodeShape;
+  sh:property [
+      sh:datatype xsd:string;
+      sh:path skos:prefLabel
+    ];
+  sh:targetClass <http://metadata.un.org/sdg/ontology#Goal> .
+
+<https://semopenalex.org/ontology/TopicalDescriptorShape> a sh:NodeShape;
+  sh:property [
+      sh:datatype xsd:string;
+      sh:path skos:prefLabel
+    ];
+  sh:targetClass <http://id.nlm.nih.gov/mesh/vocab#TopicalDescriptor> .
+
+<https://semopenalex.org/ontology/CountsByYearShape> a sh:NodeShape;
+  sh:property [
+      sh:datatype xsd:integer;
+      sh:path <https://semopenalex.org/ontology/citedByCount>
+    ], [
+      sh:datatype xsd:integer;
+      sh:path <https://semopenalex.org/ontology/worksCount>
+    ], [
+      sh:datatype xsd:integer;
+      sh:path <https://semopenalex.org/ontology/year>
+    ];
+  sh:targetClass <https://semopenalex.org/ontology/CountsByYear> .

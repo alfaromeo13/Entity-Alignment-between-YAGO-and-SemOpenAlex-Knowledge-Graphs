@@ -1,0 +1,31 @@
+Dataset,Metric,Value
+YAGO,Node shapes,40
+YAGO,Declared classes,40
+YAGO,Declared object properties,0
+YAGO,Declared datatype properties,0
+YAGO,Declared annotation properties,0
+YAGO,Unique constrained predicates,106
+YAGO,SHACL object-range predicates,62
+YAGO,SHACL datatype-range predicates,44
+YAGO,SHACL mixed-range predicates,0
+YAGO,Shape-property constraints,141
+YAGO,Predicate namespaces reused,3
+YAGO,hierarchy_nodes,132878
+YAGO,subclass_edges,166360
+YAGO,root_classes,1
+YAGO,maximum_observed_depth,19
+SemOpenAlex,Node shapes,21
+SemOpenAlex,Declared classes,21
+SemOpenAlex,Declared object properties,33
+SemOpenAlex,Declared datatype properties,81
+SemOpenAlex,Declared annotation properties,0
+SemOpenAlex,Unique constrained predicates,110
+SemOpenAlex,SHACL object-range predicates,29
+SemOpenAlex,SHACL datatype-range predicates,81
+SemOpenAlex,SHACL mixed-range predicates,0
+SemOpenAlex,Shape-property constraints,208
+SemOpenAlex,Predicate namespaces reused,14
+SemOpenAlex,hierarchy_nodes,9
+SemOpenAlex,subclass_edges,8
+SemOpenAlex,root_classes,1
+SemOpenAlex,maximum_observed_depth,1

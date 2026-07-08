@@ -1,0 +1,3 @@
+Graph,Nodes,Edges,Average degree,Median degree,Max degree,Density,Components
+YAGO held-out,263202,176574,1.341737524790845,1.0,6474,5.097767579875628e-06,86628
+SemOpenAlex 100k sample,175031,100000,1.14265472973359,1.0,2763,6.528336455085357e-06,75061

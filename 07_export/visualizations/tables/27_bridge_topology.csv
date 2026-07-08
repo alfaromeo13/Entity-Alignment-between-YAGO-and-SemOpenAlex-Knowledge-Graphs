@@ -1,0 +1,3 @@
+state,nodes,within_graph_edges,identity_bridges,total_edges,connected_components,largest_component_nodes,mean_component_size
+Before identity bridges,3946388,166088,0,166088,3784620,16531,1.0427435251095223
+After identity bridges,3946388,166088,1973194,2139282,1814573,102624,2.1748301115469038

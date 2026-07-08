@@ -1,0 +1,3 @@
+Dataset,Entity partitions,Partition-pair buckets,Entities,Train triples,Embedding dimension,Batch size,Epochs,Mean entities per partition,Arithmetic mean triples per partition-pair bucket,Checkpoint partition files,Median checkpoint GiB per partition,Minimum checkpoint GiB,Maximum checkpoint GiB
+YAGO,32,1024,99313458,176220725,200,100000,5,3103545.5625,172090.5517578125,32,2.323916400782764,2.3239156557247043,2.323916400782764
+SemOpenAlex,128,16384,1936550634,9598336260,200,200000,3,15129301.828125,585835.9533691406,128,11.328588615171611,11.328587870113552,11.328588615171611

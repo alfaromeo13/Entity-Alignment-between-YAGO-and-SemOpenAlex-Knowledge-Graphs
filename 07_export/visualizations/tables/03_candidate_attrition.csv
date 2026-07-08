@@ -1,0 +1,8 @@
+Stage,Count
+Raw exact-label pairs,328835064
+After label/frequency filters,29446511
+Ambiguous pair rows,28060904
+Embedding top-1,2541303
+Embedding score ≥ 0.30,1980930
+Type-compatible at 0.30,1386057
+Final Stage 05 one-to-one,1755590

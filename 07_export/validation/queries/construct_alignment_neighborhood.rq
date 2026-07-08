@@ -1,0 +1,51 @@
+PREFIX owl:     <http://www.w3.org/2002/07/owl#>
+PREFIX rdf:     <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs:    <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX skos:    <http://www.w3.org/2004/02/skos/core#>
+PREFIX schema:  <http://schema.org/>
+PREFIX schemas: <https://schema.org/>
+PREFIX kg:      <https://kgalign.example.org/schema/>
+
+# Replace both IRIs with one final alignment. Run this after importing YAGO,
+# SemOpenAlex, and one alignment serialization. A GraphDB CONSTRUCT-result
+# visualization will then show the identity bridge, useful literal labels,
+# outgoing/incoming IRI neighbors, and the reified alignment evidence.
+CONSTRUCT {
+  ?subject ?predicate ?object .
+}
+WHERE {
+  VALUES (?yago ?semopenalex) {
+    (
+      <http://yago-knowledge.org/resource/REPLACE_ME>
+      <https://semopenalex.org/author/REPLACE_ME>
+    )
+  }
+  {
+    ?subject ?predicate ?object .
+    FILTER(?subject IN (?yago, ?semopenalex))
+    FILTER (
+      isIRI(?object)
+      || ?predicate IN (
+        rdf:type, rdfs:label, skos:prefLabel,
+        schema:name, schema:description, schema:identifier, schema:sameAs,
+        schemas:name, schemas:description, schemas:identifier, schemas:sameAs,
+        owl:sameAs
+      )
+    )
+  }
+  UNION
+  {
+    ?subject ?predicate ?object .
+    FILTER(?object IN (?yago, ?semopenalex))
+  }
+  UNION
+  {
+    ?alignment a kg:Alignment ;
+               rdf:subject ?yago ;
+               rdf:predicate owl:sameAs ;
+               rdf:object ?semopenalex ;
+               ?predicate ?object .
+    BIND(?alignment AS ?subject)
+  }
+}
+LIMIT 500
