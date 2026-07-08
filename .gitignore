@@ -36,6 +36,8 @@ slurm-*.out
 01_raw/yago/*
 01_raw/semopenalex/*
 !01_raw/README.md
+!01_raw/yago/
+!01_raw/yago/download_yago.sh
 !01_raw/semopenalex/
 !01_raw/semopenalex/download_semopenalex.sh
 !01_raw/semopenalex/semopenalex-ontology.ttl
@@ -110,6 +112,9 @@ graphdb-home/
 *.ntx
 *.nq
 *.nq.gz
+*.jsonl
+*.jsonl.gz
+*.zip
 *.h5
 *.hdf5
 *.npy
@@ -143,5 +148,6 @@ graphdb-home/
 !**/*.pdf
 
 # Specific small source/reference files kept from otherwise ignored data areas.
+!01_raw/yago/download_yago.sh
 !01_raw/semopenalex/semopenalex-ontology.ttl
 !01_raw/semopenalex/download_semopenalex.sh

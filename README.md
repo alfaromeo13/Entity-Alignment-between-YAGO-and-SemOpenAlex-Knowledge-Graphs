@@ -878,6 +878,25 @@ The largest computational challenges encountered during this work included:
 - executing multiple experimental refinement strategies;
 - exporting more than two million RDF identity links.
 
+The trained PyTorch-BigGraph outputs are especially large because embeddings are
+stored as partitioned HDF5 shards rather than as a single small checkpoint. In
+this run, the Stage 04 embedding outputs required approximately:
+
+| Embedding output | Approximate disk usage |
+|:-----------------|-----------------------:|
+| SemOpenAlex TransE | 1.5 TB |
+| SemOpenAlex DistMult | 1.5 TB |
+| SemOpenAlex ComplEx | 1.5 TB |
+| YAGO TransE | 75 GB |
+| YAGO DistMult | 75 GB |
+| YAGO ComplEx | 75 GB |
+| **Total Stage 04 embedding outputs** | **4.5 TB** |
+
+These generated embedding artifacts are intentionally excluded from Git. The
+repository tracks the scripts, configurations, documentation, and lightweight
+summary figures needed to reproduce or explain the models, while the large
+trained outputs remain in external storage.
+
 To make these computations practical, the pipeline was designed around Slurm batch jobs and modular processing stages that could execute independently on an HPC cluster.
 
 This design makes it possible to rerun individual experiments without repeating expensive preprocessing or embedding generation.

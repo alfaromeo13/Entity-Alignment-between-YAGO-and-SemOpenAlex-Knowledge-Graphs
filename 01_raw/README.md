@@ -28,6 +28,46 @@ During preprocessing, these files are decompressed on the fly using `pigz -dc` a
 
 **YAGO 4.5** raw data was obtained as Turtle files (`.ttl`) and downloaded from their official website: https://yago-knowledge.org/downloads/yago-4-5
 
+The reproducible download script for this project is:
+
+```bash
+cd /data/horse/ws/jovu353i-kgalign/KGAlignment/01_raw/yago
+
+bash download_yago.sh
+```
+
+By default, the script downloads and unpacks:
+
+```text
+https://yago-knowledge.org/data/yago4.5/yago-4.5.0.2.zip
+```
+
+and places the expected files directly in `01_raw/yago/`:
+
+```text
+yago-facts.ttl
+yago-beyond-wikipedia.ttl
+yago-schema.ttl
+yago-taxonomy.ttl
+```
+
+If the full archive is too large for a quick test run, the tiny archive from
+the same YAGO directory can be used instead:
+
+```bash
+YAGO_ARCHIVE=yago-4.5.0.2-tiny.zip bash download_yago.sh
+```
+
+The YAGO download directory also provides `yago-entities.jsonl.zip`. This file
+is a lightweight entity catalog with one JSON object per entity, usually
+containing fields such as `id`, `title`, and `description`. It is useful for
+quick lookup, interface search, or lightweight inspection, but it is not a
+replacement for the Turtle graph files used by this pipeline because it does
+not contain the full RDF graph, schema, taxonomy, relations, or fact
+annotations.
+
+The alignment pipeline uses the Turtle files from `yago-4.5.0.2.zip`.
+
 
 # Verification Commands
 
