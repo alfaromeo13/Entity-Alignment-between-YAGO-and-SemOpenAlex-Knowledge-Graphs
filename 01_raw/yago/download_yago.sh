@@ -1,9 +1,7 @@
 #!/bin/bash
 set -euo pipefail
 
-# Download and unpack YAGO 4.5 into this folder.
-# Default source:
-#   https://yago-knowledge.org/data/yago4.5/yago-4.5.0.2.zip
+# Download and unpack YAGO 4.5 into this folder. https://yago-knowledge.org/data/yago4.5/yago-4.5.0.2.zip
 
 SCRIPT_DIR=$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)
 BASE_URL=https://yago-knowledge.org/data/yago4.5
