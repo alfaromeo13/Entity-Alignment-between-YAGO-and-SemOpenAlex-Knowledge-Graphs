@@ -74,7 +74,7 @@ The integer triple format is:
 head_id<TAB>relation_id<TAB>tail_id
 ```
 
-# Execution 
+## Execution
 
 **1. Prepare YAGO integer dataset**
 

@@ -149,9 +149,10 @@ and produces:
 - `successful_shards.txt`
 - `failed_shards.txt`
 
-# Execution Order:
+## Execution Order
 
-<mark>Note that all large preprocessing jobs should be submitted through Slurm, not run directly on the login node! </mark>
+Note that all large preprocessing jobs should be submitted through Slurm, not run
+directly on the login node.
 
 **1. Preprocess YAGO**
 

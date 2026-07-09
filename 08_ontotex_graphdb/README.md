@@ -64,7 +64,12 @@ First create the license directory and place the license file there:
 
 ```bash
 mkdir -p /data/graphdb-home/work
-# copy graphdb.license to /data/graphdb-home/work/graphdb.license
+```
+
+Copy `graphdb.license` to:
+
+```text
+/data/graphdb-home/work/graphdb.license
 ```
 
 Then preload the repository:
