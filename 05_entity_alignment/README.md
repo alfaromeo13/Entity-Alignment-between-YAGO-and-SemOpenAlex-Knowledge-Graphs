@@ -68,22 +68,27 @@ The final alignment set used by the export stage is selected in Stage 06:
 
 That file contains 1,973,194 one-to-one alignments after profile-text enrichment, graph-neighbor scoring, ABC score combination, and threshold sensitivity analysis.
 
-## Folder Structure
+## Runtime Folder Structure
+
+The GitHub repository contains the maintained scripts, tests, and documentation.
+The `data/`, `outputs/`, and `logs/` directories below are created by the
+alignment jobs and are intentionally excluded from Git because they contain
+large generated artifacts.
 
 ```text
 05_entity_alignment/
-├── data/
+├── data/              # generated intermediate alignment data, ignored by Git
 │   ├── candidates/
 │   ├── gold/
 │   └── labels/
 │
-├── outputs/
+├── outputs/           # generated alignment outputs and summaries, ignored by Git
 │   ├── evaluation/
 │   ├── final/
 │   └── rankings/
 │
 ├── scripts/
-├── logs/
+├── logs/              # generated Slurm logs, ignored by Git
 └── README.md
 ```
 

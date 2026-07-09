@@ -16,19 +16,24 @@ head_id<TAB>relation_id<TAB>tail_id
 
 This integer format is smaller, faster, and suitable for large-scale embedding pipelines. The generated datasets preserve mappings between RDF resources and integer identifiers, allowing embeddings to be mapped back to the original entities in later stages of the pipeline.
 
-## Folder Structure
+## Runtime Folder Structure
+
+Only `scripts/` and this README are expected to be present in a fresh GitHub
+clone. The encoded `yago/` and `semopenalex/` directories are generated outputs
+and are intentionally excluded from Git.
 
 ```text
 03_integer_encoding/
 ├── scripts/
 │   ├── prepare_integer_dataset.py
 │   └── soa_integer_prep.sbatch
-├── yago/
-├── semopenalex/
+├── yago/          # generated integer-encoded YAGO dataset, ignored by Git
+├── semopenalex/   # generated integer-encoded SemOpenAlex dataset, ignored by Git
 └── README.md
 ```
 
-The `yago/`, and `semopenalex/` directories contain the final integer-encoded datasets
+After this stage has run, the `yago/` and `semopenalex/` directories contain the
+final integer-encoded datasets.
 
 ## Processing Workflow
 

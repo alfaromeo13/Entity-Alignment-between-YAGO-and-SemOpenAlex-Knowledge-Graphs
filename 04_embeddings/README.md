@@ -60,7 +60,11 @@ The `train.tsv`, `valid.tsv`, and `test.tsv` files were created earlier during p
 - `test.tsv` is held out and used for link prediction evaluation.
 - `valid.tsv` can be used for validation or tuning.
 
-## Folder Structure
+## Runtime Folder Structure
+
+The GitHub repository contains the scripts, configs, README, and lightweight
+analysis figures. The large PBG input, evaluation input, logs, and checkpoint
+outputs are generated locally/HPC-side and are intentionally excluded from Git.
 
 ```text
 04_embeddings/
@@ -74,10 +78,10 @@ The `train.tsv`, `valid.tsv`, and `test.tsv` files were created earlier during p
 │   ├── semopenalex/
 │   └── semopenalex_eval/
 │
-├── logs/
-├── input/
-├── input_eval/
-├── output/
+├── logs/          # generated Slurm logs, ignored by Git
+├── input/         # generated PBG input, ignored by Git
+├── input_eval/    # generated sampled evaluation input, ignored by Git
+├── output/        # generated PBG checkpoints, ignored by Git
 │   ├── yago/
 │   └── semopenalex/
 │

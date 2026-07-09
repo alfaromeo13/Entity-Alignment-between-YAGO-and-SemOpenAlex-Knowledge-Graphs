@@ -444,29 +444,31 @@ Final alignment count:
 
 This is the final selected alignment file used by Stage 07 RDF export.
 
-## Folder Structure
+## Runtime Folder Structure
 
-The experiment folder is organized as follows:
+The GitHub repository contains the maintained scripts, tests, and this README.
+The `data/`, `outputs/`, and `logs/` directories below are generated when the
+experiments run and are intentionally excluded from Git.
 
 ```text
 06_experiments/
 ├── type_text_enrichment/
 │   ├── scripts/
-│   ├── data/
-│   ├── outputs/
-│   └── logs/
+│   ├── data/       # generated intermediate files, ignored by Git
+│   ├── outputs/    # generated experiment outputs, ignored by Git
+│   └── logs/       # generated Slurm logs, ignored by Git
 │
 ├── graph_neighbor_only/
 │   ├── scripts/
-│   ├── data/
-│   ├── outputs/
-│   └── logs/
+│   ├── data/       # generated intermediate files, ignored by Git
+│   ├── outputs/    # generated experiment outputs, ignored by Git
+│   └── logs/       # generated Slurm logs, ignored by Git
 │
 ├── graph_neighbor_signal/
 │   ├── scripts/
-│   ├── data/
-│   ├── outputs/
-│   └── logs/
+│   ├── data/       # generated intermediate files, ignored by Git
+│   ├── outputs/    # generated experiment outputs, ignored by Git
+│   └── logs/       # generated Slurm logs, ignored by Git
 │
 ├── tests/
 │   └── test_pipeline_cli.py
@@ -483,11 +485,7 @@ outputs/   final and evaluation outputs
 logs/      Slurm logs
 ```
 
-There is deliberately no Stage 06 `final_alignment/` directory. That name had
-briefly been introduced as a shared internal container, but it obscured which
-method owned each script and result. The three method directories above now
-contain the actual code, evidence files, outputs, and logs. This file is the
-only README in Stage 06 and documents all three experiments together.
+This single README documents all three Stage 06 experiments.
 
 ## Script Reference
 
