@@ -551,7 +551,14 @@ This makes experimental comparisons more reliable and avoids unnecessary recompu
 
 Another consequence of this organization is transparency.
 
-Instead of exposing only the final alignment set, the repository preserves the intermediate artifacts generated throughout the workflow, including candidate pools, embedding similarities, profile-text scores, graph-neighbor scores, experimental comparisons, and evaluation summaries.
+Instead of exposing only the final alignment set, the pipeline is designed to
+preserve intermediate artifacts when executed locally or on the HPC cluster,
+including candidate pools, embedding similarities, profile-text scores,
+graph-neighbor scores, experimental comparisons, and evaluation summaries.
+Because many of these artifacts are very large, the GitHub repository tracks
+the code, configurations, documentation, and lightweight summary tables/figures,
+while raw datasets and large generated outputs are intentionally excluded from
+Git.
 
 These intermediate results make it possible to inspect how individual alignment decisions evolved throughout the pipeline rather than treating the final output as a black box.
 
