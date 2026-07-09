@@ -320,6 +320,8 @@ Examples may include:
 Keeping these experiments separate from the production pipeline makes it easier to distinguish reproducible results from exploratory research while preserving potentially useful work for future extensions.
 
 
+## Stage Documentation
+
 Every major stage contains its own dedicated README describing:
 
 - the purpose of the stage,
