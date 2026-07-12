@@ -93,6 +93,13 @@ slurm-*.out
 graphdb-home/
 *.license
 
+# Thesis draft is kept local until it is ready to publish.
+Master_thesis/
+
+# Locally collected thesis reference PDFs. Kept for clarity if the thesis
+# folder is later re-enabled.
+Master_thesis/reference_pdfs/
+
 # Future-work generated artifacts
 09_future_work/**/data/
 09_future_work/**/output/
@@ -146,6 +153,10 @@ graphdb-home/
 !**/*.svg
 !**/*.png
 !**/*.pdf
+
+# Keep the GraphDB repository template even though generated RDF dumps are
+# ignored globally.
+!08_ontotex_graphdb/kgalign_merged-config.ttl
 
 # Specific small source/reference files kept from otherwise ignored data areas.
 !01_raw/yago/download_yago.sh

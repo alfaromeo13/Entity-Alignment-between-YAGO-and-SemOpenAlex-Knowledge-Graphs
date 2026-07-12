@@ -15,26 +15,26 @@ services:
       - |
         set -eu
         dst=/tmp/graphdb-import-kgalign-merged-rdf-only
-        rm -rf "$dst"
-        mkdir -p "$dst/semopenalex" "$dst/yago" "$dst/alignments"
+        rm -rf "$$dst"
+        mkdir -p "$$dst/semopenalex" "$$dst/yago" "$$dst/alignments"
 
         semopenalex=/opt/graphdb/graphdb-import/semopenalex
-        find "$semopenalex" -type f \( \
+        find "$$semopenalex" -type f \( \
           -name "*.trig.gz" -o -name "*.trig" -o \
           -name "*.ttl.gz" -o -name "*.ttl" -o \
           -name "*.nt.gz" -o -name "*.nt" -o \
           -name "*.nq.gz" -o -name "*.nq" -o \
           -name "*.ntx" \
         \) -exec sh -c '
-          src="$1"
-          dst="$2"
+          src="$$1"
+          dst="$$2"
           shift 2
           for f do
-            rel=${f#"$src"/}
-            mkdir -p "$dst/$(dirname "$rel")"
-            ln -s "$f" "$dst/$rel"
+            rel=$${f#"$$src"/}
+            mkdir -p "$$dst/$$(dirname "$$rel")"
+            ln -s "$$f" "$$dst/$$rel"
           done
-        ' sh "$semopenalex" "$dst/semopenalex" {} +
+        ' sh "$$semopenalex" "$$dst/semopenalex" {} +
 
         yago=/opt/graphdb/graphdb-import/yago
         for f in \
@@ -43,30 +43,31 @@ services:
           yago-schema.ttl \
           yago-taxonomy.ttl
         do
-          ln -s "$yago/$f" "$dst/yago/$f"
+          ln -s "$$yago/$$f" "$$dst/yago/$$f"
         done
 
         ln -s /opt/graphdb/graphdb-import/alignments/final_alignments.trig \
-          "$dst/alignments/final_alignments.trig"
+          "$$dst/alignments/final_alignments.trig"
 
         /opt/graphdb/dist/bin/importrdf preload \
           --chunk 10m --force --recursive --parsing-tasks 24 \
           --recovery-point-interval 3600 \
-          --id kgalign_merged \
-          "$dst"
+          --config-file /opt/graphdb/kgalign_merged-config.ttl \
+          "$$dst"
 
     environment:
       GDB_JAVA_OPTS: >-
-        -Xms100g
-        -Xmx100g
+        -Xms112g
+        -Xmx112g
         -Dgraphdb.home=/opt/graphdb/home
         -Dgraphdb.workbench.importDirectory=/opt/graphdb/graphdb-import
 
     volumes:
-      - /data/graphdb-home:/opt/graphdb/home:Z
+      - ./graphdb-home:/opt/graphdb/home:Z
       - ../01_raw/semopenalex:/opt/graphdb/graphdb-import/semopenalex:Z
       - ../01_raw/yago:/opt/graphdb/graphdb-import/yago:Z
       - ../07_export/rdf_alignments:/opt/graphdb/graphdb-import/alignments:Z
+      - ./kgalign_merged-config.ttl:/opt/graphdb/kgalign_merged-config.ttl:Z,ro
 
   graphdb:
     container_name: graphdb
@@ -79,8 +80,8 @@ services:
     environment:
       GDB_JAVA_OPTS: >-
         -Xms32g
-        -Xmx96g
+        -Xmx112g
         -Dgraphdb.home=/opt/graphdb/home
 
     volumes:
-      - /data/graphdb-home:/opt/graphdb/home:Z
+      - ./graphdb-home:/opt/graphdb/home:Z

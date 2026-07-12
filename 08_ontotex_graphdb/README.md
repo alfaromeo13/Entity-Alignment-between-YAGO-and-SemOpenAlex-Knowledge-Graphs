@@ -1,123 +1,68 @@
-# 08 Ontotext GraphDB
+# Ontotext GraphDB setup
 
-This folder contains the Docker Compose setup for loading the final RDF output into Ontotext GraphDB. It is used for SPARQL inspection, graph-neighborhood exploration, repository statistics, and thesis screenshots.
+This folder contains the Docker Compose setup used to load the final
+KGAlignment RDF output into Ontotext GraphDB for SPARQL validation, graph
+inspection, and qualitative visualization.
 
-This is not an HPC/Slurm stage. Run it on a local workstation or another Docker-capable machine. On TU Dresden/ZIH HPC systems, Singularity is the supported container workflow rather than Docker: <https://compendium.hpc.tu-dresden.de/software/containers/#singularity>
+GraphDB is used only as an RDF inspection and validation environment. The main
+preprocessing, embedding, alignment, and RDF export stages are implemented in
+the earlier pipeline folders.
 
-## License
-
-GraphDB requires a license before use. For this project scale, use an Enterprise license.
-
-- GraphDB licensing: <https://graphdb.ontotext.com/documentation/11.4/licensing.html>
-- License setup: <https://graphdb.ontotext.com/documentation/11.4/set-up-your-license.html>
-- Request a GraphDB license: <https://www.ontotext.com/products/graphdb/#:~:text=Request%20GraphDB%20License>
-
-Place the license on the GraphDB host before preloading:
-
-```text
-/data/graphdb-home/work/graphdb.license
-```
-
-Do not commit the license file.
-
-## Files
-
-```text
-08_ontotex_graphdb/
-├── docker-compose.yml
-└── README.md
-```
-
-## What gets loaded
-
-The compose file creates one merged repository:
+The intended repository is:
 
 ```text
 kgalign_merged
 ```
 
-This repository contains:
+It contains three layers in one GraphDB repository:
+
+- YAGO RDF data;
+- SemOpenAlex RDF data;
+- the final YAGO--SemOpenAlex alignment graph exported as `owl:sameAs` links
+  with reified metadata.
+
+Keeping all three layers in one repository makes the final alignments usable as
+explicit bridges between the two knowledge graphs.
+
+## Files in this folder
 
 ```text
-YAGO triples
-SemOpenAlex triples
-final owl:sameAs alignments
+08_ontotex_graphdb/
+├── docker-compose.yml
+├── kgalign_merged-config.ttl
+├── SPARQL_EXAMPLES.md
+├── .gitignore
+└── README.md
 ```
 
-The final alignments come from:
+Tracked files:
+
+- `docker-compose.yml` defines the GraphDB runtime container and the one-time
+  offline preload container.
+- `kgalign_merged-config.ttl` is the GraphDB repository template used by
+  `importrdf preload`.
+- `SPARQL_EXAMPLES.md` contains the focused validation and inspection query
+  bank used after the repository has loaded.
+
+Local-only files:
+
+- `graphdb-home/` stores the GraphDB license, logs, indexes, and repository
+  data. It is intentionally ignored by Git.
+- `*.license` and `*.log` files are local runtime artifacts and should not be
+  committed.
+
+## Expected input data
+
+The preload service expects these pipeline outputs to exist relative to this
+folder:
 
 ```text
-KGAlignment/07_export/rdf_alignments/final_alignments.trig
+../01_raw/semopenalex/
+../01_raw/yago/
+../07_export/rdf_alignments/final_alignments.trig
 ```
 
-Use the TriG export because it already contains the alignment named graph:
-
-```text
-https://kgalign.example.org/graph/final-alignments
-```
-
-Do not load the alignments into a separate third GraphDB repository if you want bridge visualization. The source graphs and the alignment graph must be in the same repository.
-
-## Run order
-
-First create the license directory and place the license file there:
-
-```bash
-mkdir -p /data/graphdb-home/work
-```
-
-Copy `graphdb.license` to:
-
-```text
-/data/graphdb-home/work/graphdb.license
-```
-
-Then preload the repository:
-
-```bash
-cd /data/horse/ws/jovu353i-kgalign/KGAlignment/08_ontotex_graphdb
-docker compose run --rm preload
-```
-
-This creates the `kgalign_merged` repository offline. You do not need to start GraphDB first and you do not need to create the repository manually in the Workbench.
-
-After preload finishes, start GraphDB:
-
-```bash
-docker compose up -d graphdb
-```
-
-Open:
-
-```text
-http://localhost:7200/
-```
-
-If you only have the license through the Workbench upload UI, start GraphDB once, upload the license, stop GraphDB, run the preload command, and start GraphDB again.
-
-## Input paths
-
-The compose file mounts project data directly:
-
-```text
-../01_raw/semopenalex
-../01_raw/yago
-../07_export/rdf_alignments
-```
-
-If you move the project to another server, keep the folder structure or update the volume paths in `docker-compose.yml`.
-
-## Non-RDF files
-
-GraphDB offline preload can fail if recursive import folders contain non-RDF files such as `.txt`, `.log`, or `.sh`. The preload service therefore creates a temporary RDF-only symlink tree inside the container before running `importrdf preload`.
-
-For SemOpenAlex, RDF-like files are selected by extension:
-
-```text
-*.trig.gz, *.trig, *.ttl.gz, *.ttl, *.nt.gz, *.nt, *.nq.gz, *.nq, *.ntx
-```
-
-For YAGO, the preload uses:
+Only the following YAGO files are loaded:
 
 ```text
 yago-beyond-wikipedia.ttl
@@ -126,20 +71,233 @@ yago-schema.ttl
 yago-taxonomy.ttl
 ```
 
-## Large-file import
-
-The final alignment file is large:
+The alignment input is:
 
 ```text
-final_alignments.trig  about 1.5 GB
+../07_export/rdf_alignments/final_alignments.trig
 ```
 
-This setup uses GraphDB's offline `importrdf preload` feature because it is designed for very large initial RDF imports. Instead of sending data through the browser-based Workbench upload path, GraphDB reads the RDF files directly from directories mounted into the container and builds the repository on disk.
+The TriG export is used because it preserves the named alignment graph:
 
-That is much better suited for this project than Workbench upload: the source KGs and the final alignment RDF are large, and GraphDB documents a default 1 GB limit for local/remote Workbench file import. Offline preload avoids that upload bottleneck and is the appropriate method for loading large graphs into a fresh repository.
+```text
+https://kgalign.example.org/graph/final-alignments
+```
 
-The import is still bounded by the actual machine resources: disk space, memory, runtime, and GraphDB repository storage. But it is not constrained by the browser upload limit.
+## Requirements
 
-In the GraphDB loading table, this corresponds to `ImportRDF Preload`: the method intended for huge initial datasets. The other interfaces are useful only in different situations, for example adding data later to an already running repository. For this project setup, offline preload is the preferred method.
+- Docker with Docker Compose.
+- Sufficient disk space for the loaded repository.
+- An Ontotext GraphDB license suitable for the repository size.
 
-Here it is explained more: <https://graphdb.ontotext.com/documentation/11.4/loading-data.html>
+This setup is intended for a Docker-capable workstation or server. It is not an
+HPC/Slurm stage.
+
+## License setup
+
+Start GraphDB once:
+
+```bash
+docker compose up -d graphdb
+```
+
+Open the Workbench:
+
+```text
+http://localhost:7200/
+```
+
+Add the GraphDB license through the Workbench UI. The license is stored inside:
+
+```text
+graphdb-home/work/graphdb.license
+```
+
+Then stop GraphDB before the offline preload:
+
+```bash
+docker compose stop graphdb
+```
+
+Do not run the `graphdb` and `preload` services at the same time. They share the
+same `graphdb-home/` directory.
+
+## Offline preload
+
+Run all commands from this folder:
+
+```bash
+cd 08_ontotex_graphdb
+```
+
+Create the repository with GraphDB's offline importer:
+
+```bash
+docker compose --profile preload run --rm preload
+```
+
+The preload command uses:
+
+```text
+--config-file /opt/graphdb/kgalign_merged-config.ttl
+```
+
+You do not need to create the repository manually in the Workbench.
+
+The preload service creates a temporary RDF-only symlink tree inside the
+container before calling GraphDB. This prevents non-RDF files from being picked
+up recursively during import.
+
+## Start GraphDB after preload
+
+After preload finishes, start GraphDB:
+
+```bash
+docker compose up -d graphdb
+```
+
+Check repository state:
+
+```bash
+curl http://localhost:7200/rest/repositories
+```
+
+The repository is ready when `kgalign_merged` is shown as:
+
+```text
+"state":"RUNNING"
+```
+
+The Workbench UI can become reachable before the repository itself is ready.
+For this dataset, wait for the repository state rather than assuming that an
+open UI means SPARQL queries are usable.
+
+Useful log command:
+
+```bash
+docker logs -f graphdb
+```
+
+The repository is ready after GraphDB reports that `kgalign_merged` has been
+successfully initialized.
+
+## SPARQL endpoint
+
+Raw repository endpoint:
+
+```text
+http://localhost:7200/repositories/kgalign_merged
+```
+
+Workbench SPARQL page:
+
+```text
+http://localhost:7200/sparql
+```
+
+Use `SPARQL_EXAMPLES.md` for the maintained query set. It includes:
+
+- import and RDF export sanity checks;
+- one-to-one validation queries;
+- source, confidence, and type summaries;
+- type-crosswalk and manual inspection queries;
+- compact GraphDB visualization queries for thesis screenshots;
+- a limitations/error-analysis query.
+
+## Repository scale
+
+One completed merged repository reported:
+
+```text
+NumberOfStatements=25751585421
+NumberOfExplicitStatements=25751585421
+NumberOfEntities=4136826851
+SuccessfulCommits=1
+```
+
+The loaded repository occupied approximately:
+
+```text
+2.3T graphdb-home/data/repositories/kgalign_merged
+```
+
+These values describe the complete merged GraphDB repository, not just the final
+alignment graph. They are useful for sizing, but they are not model parameters.
+
+## Important repository settings
+
+`kgalign_merged-config.ttl` configures the repository with:
+
+- repository id `kgalign_merged`;
+- no reasoning ruleset;
+- context and literal indexes enabled;
+- large entity identifiers;
+- `disable-sameAs=true`.
+
+`disable-sameAs=true` does not remove the exported `owl:sameAs` triples. They
+remain stored as explicit RDF statements. The setting prevents GraphDB from
+performing sameAs expansion internally, which would be too expensive at this
+graph size.
+
+## Common checks
+
+After startup, the first checks should be:
+
+1. Count direct `owl:sameAs` links.
+2. Count `kg:Alignment` metadata records.
+3. Confirm unique YAGO and SemOpenAlex entity counts.
+4. Check one-to-one violations on both sides.
+5. Inspect the source/confidence and type distributions.
+6. Render a compact GraphDB visual graph around one selected alignment.
+
+The maintained queries for these checks are in `SPARQL_EXAMPLES.md`.
+
+## Troubleshooting
+
+### Repository is still STARTING
+
+If the Workbench opens but SPARQL does not work, check:
+
+```bash
+curl http://localhost:7200/rest/repositories
+```
+
+If `kgalign_merged` is still `STARTING`, wait and monitor:
+
+```bash
+docker logs -f graphdb
+```
+
+### Repository does not exist after preload
+
+Confirm that the preload command used:
+
+```text
+--config-file /opt/graphdb/kgalign_merged-config.ttl
+```
+
+The repository is created from the config file during offline preload.
+
+### Autocomplete or namespace errors in Workbench
+
+These usually happen while the repository is still opening. Wait until
+`kgalign_merged` is `RUNNING`, then reload the Workbench page.
+
+## Git hygiene
+
+Commit the configuration and documentation in this folder:
+
+```text
+docker-compose.yml
+kgalign_merged-config.ttl
+SPARQL_EXAMPLES.md
+README.md
+.gitignore
+```
+
+Do not commit:
+
+```text
+graphdb-home/
+*.license
+*.log
+```
