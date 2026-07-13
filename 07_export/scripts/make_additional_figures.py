@@ -38,7 +38,6 @@ def style():
         {
             "figure.dpi": 150,
             "savefig.dpi": 150,
-            "svg.fonttype": "none",
             "font.family": "DejaVu Sans",
             "font.size": 9.5,
             "axes.titlesize": 11.5,
@@ -60,7 +59,7 @@ def heading(fig, title, subtitle):
 def save(fig, name, rect=(0, 0, 1, 0.88)):
     FIGURES.mkdir(parents=True, exist_ok=True)
     fig.tight_layout(rect=rect)
-    fig.savefig(FIGURES / name, format="svg", bbox_inches="tight", facecolor="white")
+    fig.savefig(FIGURES / name, format="pdf", bbox_inches="tight", facecolor="white")
     plt.close(fig)
 
 
@@ -105,7 +104,7 @@ def fig18_predicates(core):
         "Top 30 predicates reveal different graph semantics",
         "Exact distributions from the complete held-out graph splits.",
     )
-    save(fig, "18_top30_predicates.svg")
+    save(fig, "18_top30_predicates.pdf")
 
 
 def fig19_ontology(extra):
@@ -125,7 +124,7 @@ def fig19_ontology(extra):
         "Ontology/type profiles of the held-out graphs",
         "Top rdf:type objects show YAGO’s broad ontology versus SemOpenAlex’s scholarly specialization.",
     )
-    save(fig, "19_ontology_type_profiles.svg")
+    save(fig, "19_ontology_type_profiles.pdf")
 
 
 def fig20_overlap(extra):
@@ -144,7 +143,7 @@ def fig20_overlap(extra):
         "Predicate vocabulary overlap is small",
         "Exact URI-level comparison of the 68 YAGO and 31 SemOpenAlex embedding predicates.",
     )
-    save(fig, "20_predicate_overlap.svg")
+    save(fig, "20_predicate_overlap.pdf")
 
 
 def graph_stats_frame(extra):
@@ -186,7 +185,7 @@ def fig21_graph_stats(extra):
         "Graph-topology statistics on tractable evaluation graphs",
         "YAGO uses its full held-out split; SemOpenAlex uses the documented random 100k held-out sample—not the terabyte training graph.",
     )
-    save(fig, "21_sample_graph_statistics.svg")
+    save(fig, "21_sample_graph_statistics.pdf")
 
 
 def fig22_degree(extra):
@@ -205,7 +204,7 @@ def fig22_degree(extra):
         "Degree distributions are strongly right-skewed",
         "Log–log view of evaluation-graph degrees; this supports heavy-tail language without claiming a fitted power law.",
     )
-    save(fig, "22_degree_distribution.svg")
+    save(fig, "22_degree_distribution.pdf")
 
 
 def fig23_components(extra):
@@ -224,7 +223,7 @@ def fig23_components(extra):
         "Connected-component size rank",
         "Component structure is computed on the same tractable evaluation graphs used for degree statistics.",
     )
-    save(fig, "23_component_sizes.svg")
+    save(fig, "23_component_sizes.pdf")
 
 
 def fig24_labels(extra):
@@ -270,7 +269,7 @@ def fig24_labels(extra):
         "Label-length distributions in the final aligned population",
         f"Exact lengths from all {sum(extra['final']['source_counts'].values()):,} final pairs; this describes aligned labels rather than every raw RDF literal.",
     )
-    save(fig, "24_aligned_label_lengths.svg")
+    save(fig, "24_aligned_label_lengths.pdf")
 
 
 def fig25_ambiguous(extra):
@@ -287,7 +286,7 @@ def fig25_ambiguous(extra):
         "The most ambiguous normalized labels",
         "Computed across the complete candidate-label statistics file; generic labels create the largest candidate blocks.",
     )
-    save(fig, "25_top_ambiguous_labels.svg")
+    save(fig, "25_top_ambiguous_labels.pdf")
 
 
 def core_samples(core):
@@ -326,7 +325,7 @@ def fig26_confidence(core):
         "Final-score separation around the selected threshold",
         "Rejected population contains every pair present at threshold 0.25 but removed at 0.30.",
     )
-    save(fig, "26_confidence_distribution.svg")
+    save(fig, "26_confidence_distribution.pdf")
 
 
 def fig27_proxy(extra):
@@ -360,7 +359,7 @@ def fig27_proxy(extra):
         "Proxy-gold composition and recovery by entity type",
         "Type-specific recall-like uses the strict label-derived silver standard, not manually verified ground truth.",
     )
-    save(fig, "27_proxy_gold_by_type.svg")
+    save(fig, "27_proxy_gold_by_type.pdf")
 
 
 def fig28_matrix(extra):
@@ -391,7 +390,7 @@ def fig28_matrix(extra):
         "Type matrix for the ambiguous final alignments",
         "Exact YAGO-profile × SemOpenAlex-URI counts; strict proxy rows are excluded because their profile field stores a source marker, not a type.",
     )
-    save(fig, "28_alignment_type_matrix.svg")
+    save(fig, "28_alignment_type_matrix.pdf")
 
 
 def fig29_neighbor(extra):
@@ -416,7 +415,7 @@ def fig29_neighbor(extra):
         "Deterministic 100,000-row sample of non-proxy final alignments; extreme neighbor outliers are clipped only on the display axis.",
     )
     fig.subplots_adjust(left=0.07, right=0.91, bottom=0.14, top=0.82, wspace=0.35)
-    fig.savefig(FIGURES / "29_neighbor_agreement.svg", format="svg", bbox_inches="tight", facecolor="white")
+    fig.savefig(FIGURES / "29_neighbor_agreement.pdf", format="pdf", bbox_inches="tight", facecolor="white")
     plt.close(fig)
 
 
@@ -465,7 +464,7 @@ def fig30_cooccurrence(extra):
         "Predicate co-occurrence within entity neighborhoods",
         "Off-diagonal cells show Jaccard similarity of incident-predicate entity sets; diagonals are intentionally masked.",
     )
-    save(fig, "30_predicate_cooccurrence.svg")
+    save(fig, "30_predicate_cooccurrence.pdf")
 
 
 def write_additional_tables(extra):
@@ -542,8 +541,8 @@ def main():
     fig30_cooccurrence(extra)
     write_additional_tables(extra)
 
-    figures = sorted(path.name for path in FIGURES.glob("*.svg"))
-    print(f"Total SVG figures: {len(figures)}")
+    figures = sorted(path.name for path in FIGURES.glob("*.pdf"))
+    print(f"Total PDF figures: {len(figures)}")
     for name in figures:
         print(f"  {name}")
 

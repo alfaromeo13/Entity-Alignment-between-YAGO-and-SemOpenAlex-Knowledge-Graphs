@@ -36,7 +36,6 @@ def style() -> None:
         {
             "figure.dpi": 150,
             "savefig.dpi": 150,
-            "svg.fonttype": "none",
             "font.family": "DejaVu Sans",
             "font.size": 9.5,
             "axes.titlesize": 11,
@@ -63,7 +62,7 @@ def clean(ax, axis="both") -> None:
 def save(fig, filename: str, rect=(0, 0, 1, 0.88)) -> None:
     FIGURES.mkdir(parents=True, exist_ok=True)
     fig.tight_layout(rect=rect)
-    fig.savefig(FIGURES / filename, format="svg", bbox_inches="tight", facecolor="white")
+    fig.savefig(FIGURES / filename, format="pdf", bbox_inches="tight", facecolor="white")
     plt.close(fig)
 
 
@@ -117,7 +116,7 @@ def fig47(rank_table: pd.DataFrame) -> None:
         "Full predicate rank–frequency curves",
         "All held-out predicates on log–log axes; the shape is descriptive and no Zipf model is fitted.",
     )
-    save(fig, "47_relation_rank_frequency.svg")
+    save(fig, "47_relation_rank_frequency.pdf")
 
 
 def degree_ccdf_table(extra) -> pd.DataFrame:
@@ -170,7 +169,7 @@ def fig48(ccdf: pd.DataFrame) -> None:
         "Entity-degree complementary cumulative distributions",
         "Tail probabilities use the Figure 22 scope: full YAGO held-out and the SemOpenAlex 100k sample.",
     )
-    save(fig, "48_degree_ccdf.svg")
+    save(fig, "48_degree_ccdf.pdf")
 
 
 def namespace_label(uri: str) -> str:
@@ -299,7 +298,7 @@ def fig49(namespaces: pd.DataFrame, entropy: pd.DataFrame) -> None:
         bbox_to_anchor=(0.33, 0.015),
         ncol=4,
     )
-    save(fig, "49_predicate_namespace_entropy.svg", rect=(0, 0.18, 1, 0.88))
+    save(fig, "49_predicate_namespace_entropy.pdf", rect=(0, 0.18, 1, 0.88))
 
 
 def partition_scale_table() -> pd.DataFrame:
@@ -383,7 +382,7 @@ def fig50(scale: pd.DataFrame) -> None:
         "PyTorch-BigGraph partitioning scale",
         "Exact configurations and dataset totals; per-partition values are arithmetic averages, not a measured triple-load distribution. Figure 39 reports observed SemOpenAlex partition-loss variation.",
     )
-    save(fig, "50_pbg_partitioning_scale.svg")
+    save(fig, "50_pbg_partitioning_scale.pdf")
 
 
 def main() -> None:

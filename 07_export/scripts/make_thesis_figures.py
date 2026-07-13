@@ -46,7 +46,6 @@ def style():
         {
             "figure.dpi": 150,
             "savefig.dpi": 150,
-            "svg.fonttype": "none",
             "font.family": "DejaVu Sans",
             "font.size": 9.5,
             "axes.titlesize": 11.5,
@@ -71,7 +70,7 @@ def title(fig, heading, subtitle):
 def save(fig, name, rect=(0, 0, 1, 0.88)):
     FIGURES.mkdir(parents=True, exist_ok=True)
     fig.tight_layout(rect=rect)
-    fig.savefig(FIGURES / name, format="svg", bbox_inches="tight", facecolor="white")
+    fig.savefig(FIGURES / name, format="pdf", bbox_inches="tight", facecolor="white")
     plt.close(fig)
 
 
@@ -179,7 +178,7 @@ def fig01_scale(data):
         "Scale and composition of the two embedding graphs",
         "Exact counts from preprocessing and integer encoding; logarithmic axes preserve comparisons across orders of magnitude.",
     )
-    save(fig, "01_dataset_scale.svg")
+    save(fig, "01_dataset_scale.pdf")
 
 
 def fig02_relation_pareto(data):
@@ -202,7 +201,7 @@ def fig02_relation_pareto(data):
         "Predicate concentration in the complete held-out graphs",
         "Pareto bars show individual relation shares; black curves show cumulative coverage.",
     )
-    save(fig, "02_relation_pareto.svg")
+    save(fig, "02_relation_pareto.pdf")
 
 
 def fig03_relation_lorenz(data):
@@ -227,7 +226,7 @@ def fig03_relation_lorenz(data):
         "Relation-frequency inequality",
         "Lorenz curves quantify how strongly each graph is dominated by a small number of predicates.",
     )
-    save(fig, "03_relation_lorenz.svg")
+    save(fig, "03_relation_lorenz.pdf")
 
 
 def fig04_embedding(data):
@@ -266,7 +265,7 @@ def fig04_embedding(data):
         "Embedding benchmark: model quality depends on the metric",
         "DistMult leads MRR and Hits@1; TransE remains strongest on YAGO AUC and Hits@50.",
     )
-    save(fig, "04_embedding_benchmark.svg")
+    save(fig, "04_embedding_benchmark.pdf")
 
 
 def fig05_training(data):
@@ -298,7 +297,7 @@ def fig05_training(data):
         "YAGO training dynamics and convergence",
         "Partition statistics are weighted by evaluated examples before aggregation by epoch.",
     )
-    save(fig, "05_training_dynamics.svg")
+    save(fig, "05_training_dynamics.pdf")
 
 
 def fig06_attrition(counts, proxy):
@@ -379,7 +378,7 @@ def fig06_attrition(counts, proxy):
         "Candidate attrition from 328.8 million blocked pairs to the baseline",
         "Absolute counts and conditional retention rates reveal where most computational reduction occurs.",
     )
-    save(fig, "06_candidate_attrition.svg")
+    save(fig, "06_candidate_attrition.pdf")
 
 
 def fig07_ambiguity_ccdf():
@@ -406,7 +405,7 @@ def fig07_ambiguity_ccdf():
         "Candidate ambiguity has a long tail",
         "Complementary cumulative distribution over all 3,926,910 filtered YAGO entities.",
     )
-    save(fig, "07_candidate_ambiguity_ccdf.svg")
+    save(fig, "07_candidate_ambiguity_ccdf.pdf")
 
 
 def fig08_ambiguity_type(data):
@@ -437,7 +436,7 @@ def fig08_ambiguity_type(data):
         "Ambiguity differs substantially by entity type",
         f"Full scan of {data['ambiguity_by_type']['total']:,} enriched top-1 candidate rows.",
     )
-    save(fig, "08_ambiguity_by_type.svg")
+    save(fig, "08_ambiguity_by_type.pdf")
 
 
 def fig09_threshold(data):
@@ -464,7 +463,7 @@ def fig09_threshold(data):
         "Threshold selection controls both coverage and semantic rejection",
         "The Stage 05 sweep supports the selected 0.30 embedding threshold without pretending to estimate true precision.",
     )
-    save(fig, "09_threshold_tradeoff.svg")
+    save(fig, "09_threshold_tradeoff.pdf")
 
 
 def fig10_rejection_heatmap(rejections):
@@ -492,7 +491,7 @@ def fig10_rejection_heatmap(rejections):
         "Semantic rejection matrix",
         "Counts show which profile/type combinations were explicitly removed as implausible.",
     )
-    save(fig, "10_semantic_rejection_heatmap.svg")
+    save(fig, "10_semantic_rejection_heatmap.pdf")
 
 
 def systems_frame(data):
@@ -524,7 +523,7 @@ def fig11_systems(data):
         "Ablation results: profile text drives expansion; neighbor evidence is weaker",
         "System size is shown beside proxy diagnostics so coverage changes are not mistaken for verified quality.",
     )
-    save(fig, "11_ablation_comparison.svg")
+    save(fig, "11_ablation_comparison.pdf")
 
 
 def mask_label(mask):
@@ -571,7 +570,7 @@ def fig12_upset(data):
         "UpSet counts use deterministic 128-bit pair identifiers across all Baseline, A+B, C-only and A+B+C outputs.",
     )
     fig.subplots_adjust(left=0.15, right=0.98, bottom=0.08, top=0.84)
-    fig.savefig(FIGURES / "12_system_upset.svg", format="svg", bbox_inches="tight", facecolor="white")
+    fig.savefig(FIGURES / "12_system_upset.pdf", format="pdf", bbox_inches="tight", facecolor="white")
     plt.close(fig)
 
 
@@ -653,7 +652,7 @@ def fig13_raincloud(data):
         "Evidence distributions for accepted, new and rejected alignments",
         "Violin widths show density; embedded boxplots show median and quartiles; points are deterministic display samples.",
     )
-    save(fig, "13_evidence_rainclouds.svg")
+    save(fig, "13_evidence_rainclouds.pdf")
 
 
 def fig14_interactions(data):
@@ -690,7 +689,7 @@ def fig14_interactions(data):
         "Signal interactions separate accepted and threshold-rejected candidates",
         "Accepted panels use final ambiguous samples; rejected panels use every pair removed between ABC thresholds 0.25 and 0.30.",
     )
-    save(fig, "14_score_interactions.svg")
+    save(fig, "14_score_interactions.pdf")
 
 
 def fig15_type_contributions(data):
@@ -723,7 +722,7 @@ def fig15_type_contributions(data):
         "The balance of evidence differs across entity types",
         "Means use all final A+B+C alignments; graph-neighbor evidence is constrained by its 5% weight.",
     )
-    save(fig, "15_evidence_by_type.svg")
+    save(fig, "15_evidence_by_type.pdf")
 
 
 def load_error_samples():
@@ -834,7 +833,7 @@ def fig16_error_analysis():
         "Validation-sample cohorts expose different review risks",
         "The current 500-pair stratified sample is compared by selection source and ABC-score band; no verdicts are implied.",
     )
-    save(fig, "16_error_analysis.svg", rect=(0, 0.09, 1, 0.88))
+    save(fig, "16_error_analysis.pdf", rect=(0, 0.09, 1, 0.88))
 
 
 def write_tables(data, counts, rejections):
@@ -935,8 +934,8 @@ def main():
     fig16_error_analysis()
     write_tables(data, counts, rejections)
 
-    figures = sorted(FIGURES.glob("*.svg"))
-    print(f"Generated {len(figures)} statistical SVG figures")
+    figures = sorted(FIGURES.glob("*.pdf"))
+    print(f"Generated {len(figures)} statistical PDF figures")
     for path in figures:
         print(f"  {path.name}")
     print(f"Tables: {OUT / 'tables'}")

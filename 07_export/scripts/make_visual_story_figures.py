@@ -39,7 +39,6 @@ def style():
         {
             "figure.dpi": 150,
             "savefig.dpi": 150,
-            "svg.fonttype": "none",
             "font.family": "DejaVu Sans",
             "font.size": 9.5,
             "axes.titlesize": 11.5,
@@ -68,7 +67,7 @@ def clean(ax, axis="x"):
 def save(fig, name, rect=(0, 0, 1, 0.88)):
     FIGURES.mkdir(parents=True, exist_ok=True)
     fig.tight_layout(rect=rect)
-    fig.savefig(FIGURES / name, format="svg", bbox_inches="tight", facecolor="white")
+    fig.savefig(FIGURES / name, format="pdf", bbox_inches="tight", facecolor="white")
     plt.close(fig)
 
 
@@ -198,7 +197,7 @@ def fig36_rdf_yield(core):
         "From raw RDF statements to alignment-ready evidence",
         "Exact preprocessing counters: 1.78B YAGO and 24.42B SemOpenAlex statements were classified into structural, literal and filtered outcomes.",
     )
-    save(fig, "36_rdf_processing_yield.svg")
+    save(fig, "36_rdf_processing_yield.pdf")
 
 
 def catalog_counts():
@@ -277,7 +276,7 @@ def fig37_coverage(core):
         "Target-side alignment coverage varies sharply by entity type",
         "Coverage uses complete SemOpenAlex catalog counts where transformation summaries report item totals; authors and works are excluded.",
     )
-    save(fig, "37_target_catalog_coverage.svg")
+    save(fig, "37_target_catalog_coverage.pdf")
 
 
 def flow_frame(extra):
@@ -392,7 +391,7 @@ def fig38_bipartite(extra):
         "“Unclassified by predicates” means the YAGO heuristic abstained—not that the URI or SemOpenAlex type is unknown.",
     )
     fig.subplots_adjust(left=0.04, right=0.96, bottom=0.03, top=0.86)
-    fig.savefig(FIGURES / "38_bipartite_alignment_flow.svg", format="svg", bbox_inches="tight", facecolor="white")
+    fig.savefig(FIGURES / "38_bipartite_alignment_flow.pdf", format="pdf", bbox_inches="tight", facecolor="white")
     plt.close(fig)
 
 
@@ -469,7 +468,7 @@ def fig39_pbg():
         "PyTorch-BigGraph training behavior on SemOpenAlex",
         "Weighted epoch means and 10–90% partition bands use all 16,384 partition statistics per model and epoch on the 9.62B-triple graph.",
     )
-    save(fig, "39_semopenalex_pbg_training.svg")
+    save(fig, "39_semopenalex_pbg_training.pdf")
 
 
 def case_node(ax, x, y, width, height, title, subtitle, color):
@@ -532,7 +531,7 @@ def fig40_cases(identifier_data):
         "Two real alignments show why aggregate scores need external validation",
         "Both pairs come directly from the final A+B+C file; Wikidata QIDs provide independent identity evidence for these examples.",
     )
-    save(fig, "40_alignment_case_studies.svg")
+    save(fig, "40_alignment_case_studies.pdf")
 
 
 def write_tables(core, extra):
@@ -580,7 +579,7 @@ def main():
     fig39_pbg()
     fig40_cases(identifiers)
     write_tables(core, extra)
-    print(f"Total SVG figures: {len(list(FIGURES.glob('*.svg')))}")
+    print(f"Total PDF figures: {len(list(FIGURES.glob('*.pdf')))}")
     print(f"Total CSV tables: {len(list((OUT / 'tables').glob('*.csv')))}")
 
 

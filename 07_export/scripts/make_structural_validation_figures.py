@@ -360,7 +360,6 @@ def style():
         {
             "figure.dpi": 150,
             "savefig.dpi": 150,
-            "svg.fonttype": "none",
             "font.family": "DejaVu Sans",
             "font.size": 9.5,
             "axes.titlesize": 11.5,
@@ -415,7 +414,7 @@ def fig41(data):
     )
     fig.tight_layout(rect=(0, 0, 1, 0.84))
     FIGURES.mkdir(parents=True, exist_ok=True)
-    fig.savefig(FIGURES / "41_neighbor_preservation.svg", format="svg", bbox_inches="tight", facecolor="white")
+    fig.savefig(FIGURES / "41_neighbor_preservation.pdf", format="pdf", bbox_inches="tight", facecolor="white")
     plt.close(fig)
 
 
@@ -447,7 +446,7 @@ def fig42(data):
     )
     fig.tight_layout(rect=(0, 0, 1, 0.84))
     FIGURES.mkdir(parents=True, exist_ok=True)
-    fig.savefig(FIGURES / "42_bridge_topology_change.svg", format="svg", bbox_inches="tight", facecolor="white")
+    fig.savefig(FIGURES / "42_bridge_topology_change.pdf", format="pdf", bbox_inches="tight", facecolor="white")
     plt.close(fig)
 
 
@@ -471,8 +470,8 @@ def main():
     fig41(data)
     fig42(data)
     write_tables(data)
-    print(f"Wrote {FIGURES / '41_neighbor_preservation.svg'}")
-    print(f"Wrote {FIGURES / '42_bridge_topology_change.svg'}")
+    print(f"Wrote {FIGURES / '41_neighbor_preservation.pdf'}")
+    print(f"Wrote {FIGURES / '42_bridge_topology_change.pdf'}")
 
 
 if __name__ == "__main__":

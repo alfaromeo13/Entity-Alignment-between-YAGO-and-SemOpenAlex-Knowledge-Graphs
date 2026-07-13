@@ -69,7 +69,6 @@ def style():
         {
             "figure.dpi": 150,
             "savefig.dpi": 150,
-            "svg.fonttype": "none",
             "font.family": "DejaVu Sans",
             "font.size": 9.5,
             "axes.titlesize": 11,
@@ -145,8 +144,8 @@ def fig45(data):
     )
     fig.tight_layout(rect=(0, 0, 1, 0.84))
     fig.savefig(
-        FIGURES / "45_confidence_by_entity_type.svg",
-        format="svg",
+        FIGURES / "45_confidence_by_entity_type.pdf",
+        format="pdf",
         bbox_inches="tight",
         facecolor="white",
     )
@@ -312,8 +311,8 @@ def fig46(composition, total):
     )
     fig.subplots_adjust(left=0.07, right=0.97, bottom=0.10, top=0.80, wspace=0.16)
     fig.savefig(
-        FIGURES / "46_rdf_export_composition.svg",
-        format="svg",
+        FIGURES / "46_rdf_export_composition.pdf",
+        format="pdf",
         bbox_inches="tight",
         facecolor="white",
     )
@@ -334,8 +333,8 @@ def main():
     composition.to_csv(TABLES / "32_rdf_export_composition.csv", index=False)
     fig45(data)
     fig46(composition, data["total"])
-    print(f"Wrote {FIGURES / '45_confidence_by_entity_type.svg'}")
-    print(f"Wrote {FIGURES / '46_rdf_export_composition.svg'}")
+    print(f"Wrote {FIGURES / '45_confidence_by_entity_type.pdf'}")
+    print(f"Wrote {FIGURES / '46_rdf_export_composition.pdf'}")
 
 
 if __name__ == "__main__":

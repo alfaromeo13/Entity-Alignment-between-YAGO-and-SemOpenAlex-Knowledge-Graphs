@@ -32,7 +32,6 @@ def style() -> None:
         {
             "figure.dpi": 150,
             "savefig.dpi": 150,
-            "svg.fonttype": "none",
             "font.family": "DejaVu Sans",
             "font.size": 9.5,
             "axes.titlesize": 11,
@@ -59,7 +58,7 @@ def clean(ax, axis="both") -> None:
 def save(fig, filename: str, rect=(0, 0, 1, 0.88)) -> None:
     FIGURES.mkdir(parents=True, exist_ok=True)
     fig.tight_layout(rect=rect)
-    fig.savefig(FIGURES / filename, format="svg", bbox_inches="tight", facecolor="white")
+    fig.savefig(FIGURES / filename, format="pdf", bbox_inches="tight", facecolor="white")
     plt.close(fig)
 
 
@@ -109,7 +108,7 @@ def fig51(frame: pd.DataFrame) -> None:
         "Final link-prediction model trade-offs",
         "Higher and farther right is better; bubble area encodes AUC and labels report its exact value.",
     )
-    save(fig, "51_link_prediction_tradeoff.svg")
+    save(fig, "51_link_prediction_tradeoff.pdf")
 
 
 def hits_curve_frame(frame: pd.DataFrame) -> pd.DataFrame:
@@ -156,7 +155,7 @@ def fig52(curves: pd.DataFrame) -> None:
         "Final Hits@K curves",
         "Lines connect the three K values actually emitted by torchbiggraph_eval: 1, 10, and 50.",
     )
-    save(fig, "52_hits_at_k_curves.svg")
+    save(fig, "52_hits_at_k_curves.pdf")
 
 
 def rank_band_frame(frame: pd.DataFrame) -> pd.DataFrame:
@@ -223,7 +222,7 @@ def fig53(bands: pd.DataFrame) -> None:
         "Where evaluated triples rank",
         "Aggregate bands derived from reported Hits@1, Hits@10, and Hits@50 rates; individual triple ranks were not logged.",
     )
-    save(fig, "53_rank_band_composition.svg", rect=(0, 0.10, 1, 0.88))
+    save(fig, "53_rank_band_composition.pdf", rect=(0, 0.10, 1, 0.88))
 
 
 def main() -> None:

@@ -33,7 +33,6 @@ def style():
         {
             "figure.dpi": 150,
             "savefig.dpi": 150,
-            "svg.fonttype": "none",
             "font.family": "DejaVu Sans",
             "font.size": 9.5,
             "axes.titlesize": 11.5,
@@ -62,7 +61,7 @@ def clean(ax, axis="x"):
 def save(fig, name, rect=(0, 0, 1, 0.88)):
     FIGURES.mkdir(parents=True, exist_ok=True)
     fig.tight_layout(rect=rect)
-    fig.savefig(FIGURES / name, format="svg", bbox_inches="tight", facecolor="white")
+    fig.savefig(FIGURES / name, format="pdf", bbox_inches="tight", facecolor="white")
     plt.close(fig)
 
 
@@ -125,7 +124,7 @@ def fig31_baseline_composition(core):
         "Stage 05 baseline composition",
         f"Exact source and SemOpenAlex-type counts across all {int(sources.Alignments.sum()):,} taxonomy-aware strict baseline alignments.",
     )
-    save(fig, "31_baseline_composition.svg")
+    save(fig, "31_baseline_composition.pdf")
 
 
 def score_histogram_frame(extra):
@@ -226,7 +225,7 @@ def fig32_score_mixture(extra):
         "The final-score distribution is a mixture of two selection mechanisms",
         "Strict proxies use fixed 1.0 embedding/profile markers, forcing ABC scores near 0.95–0.99; these are not calibrated probabilities.",
     )
-    save(fig, "32_final_score_mixture.svg")
+    save(fig, "32_final_score_mixture.pdf")
 
 
 def type_evolution_frame(core):
@@ -300,7 +299,7 @@ def fig33_type_evolution(core):
         "Entity-type evolution across experimental systems",
         "This is a coverage comparison, not an accuracy ranking; the heatmap reports count change relative to the Stage 05 baseline.",
     )
-    save(fig, "33_entity_type_evolution.svg")
+    save(fig, "33_entity_type_evolution.pdf")
 
 
 def correlation_inputs(core):
@@ -361,7 +360,7 @@ def fig34_correlations(core):
         "Evidence correlations change across the decision boundary",
         "Accepted values use deterministic final-alignment samples; rejected values include every pair removed between thresholds 0.25 and 0.30.",
     )
-    save(fig, "34_evidence_correlation_by_decision.svg")
+    save(fig, "34_evidence_correlation_by_decision.pdf")
 
 
 def identifier_frame(identifier_data):
@@ -463,7 +462,7 @@ def fig35_external_identifiers(identifier_data):
         "External identifiers expose strongly type-dependent alignment reliability",
         "Partial validation only: agreement compares YAGO URI QIDs with SemOpenAlex owl:sameAs Wikidata QIDs where both are available.",
     )
-    save(fig, "35_external_identifier_agreement.svg")
+    save(fig, "35_external_identifier_agreement.pdf")
 
 
 def write_research_question_map(identifier_data):
@@ -572,7 +571,7 @@ def main():
     fig35_external_identifiers(identifier_data)
     write_tables(core, extra, identifier_data)
     write_research_question_map(identifier_data)
-    print(f"Total SVG figures: {len(list(FIGURES.glob('*.svg')))}")
+    print(f"Total PDF figures: {len(list(FIGURES.glob('*.pdf')))}")
     print(f"Total CSV tables: {len(list((OUT / 'tables').glob('*.csv')))}")
 
 

@@ -221,7 +221,6 @@ def style():
         {
             "figure.dpi": 150,
             "savefig.dpi": 150,
-            "svg.fonttype": "none",
             "font.family": "DejaVu Sans",
             "font.size": 9.5,
             "axes.titlesize": 11.5,
@@ -307,8 +306,8 @@ def fig43(inventory):
     )
     fig.tight_layout(rect=(0, 0, 1, 0.88))
     fig.savefig(
-        FIGURES / "43_formal_schema_comparison.svg",
-        format="svg",
+        FIGURES / "43_formal_schema_comparison.pdf",
+        format="pdf",
         bbox_inches="tight",
         facecolor="white",
     )
@@ -475,8 +474,8 @@ def fig44(signatures):
     )
     fig.tight_layout(rect=(0, 0, 1, 0.90))
     fig.savefig(
-        FIGURES / "44_predicate_connectivity.svg",
-        format="svg",
+        FIGURES / "44_predicate_connectivity.pdf",
+        format="pdf",
         bbox_inches="tight",
         facecolor="white",
     )
@@ -495,8 +494,8 @@ def main():
     provenance.to_csv(TABLES / "30_ontology_source_provenance.csv", index=False)
     fig43(inventory)
     fig44(signatures)
-    print(f"Wrote {FIGURES / '43_formal_schema_comparison.svg'}")
-    print(f"Wrote {FIGURES / '44_predicate_connectivity.svg'}")
+    print(f"Wrote {FIGURES / '43_formal_schema_comparison.pdf'}")
+    print(f"Wrote {FIGURES / '44_predicate_connectivity.pdf'}")
 
 
 if __name__ == "__main__":

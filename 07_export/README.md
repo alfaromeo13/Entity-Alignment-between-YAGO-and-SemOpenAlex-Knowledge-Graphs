@@ -26,7 +26,7 @@ logs are generated locally/HPC-side and are intentionally excluded from Git.
 ├── logs/                     # generated Slurm logs, ignored by Git
 ├── validation/               # audit, sampling, annotation, and SPARQL workflow
 └── visualizations/
-    ├── figures/              # tracked publication SVG figures
+    ├── figures/              # tracked publication PDF figures
     ├── tables/               # tracked machine-readable CSV result tables
     ├── THESIS_TABLES.md      # compact preview of every CSV table
     └── RESEARCH_QUESTION_EVIDENCE.md
@@ -68,9 +68,9 @@ reported as an accuracy or precision measurement.
 
 Two alignment-aware structural analyses are also exported:
 
-- `41_neighbor_preservation.svg` maps recoverable neighbors from both graphs
+- `41_neighbor_preservation.pdf` maps recoverable neighbors from both graphs
   through the final alignments and measures their Jaccard overlap;
-- `42_bridge_topology_change.svg` measures connected components before and
+- `42_bridge_topology_change.pdf` measures connected components before and
   after adding all identity bridges in the selected strict catalog.
 
 Both analyses are exact over the stored Stage 06 neighborhood contexts. Those
@@ -512,7 +512,7 @@ incomplete until verdicts are entered in the annotation sheet.
 
 The code is intentionally split into statistical backends and renderers.
 Backends scan large source files once and cache compact Python objects;
-renderers convert those statistics into SVG and CSV. This separation makes
+renderers convert those statistics into PDF and CSV. This separation makes
 rerendering fast and keeps plotting code from silently redefining the
 measurements. Static figures use Matplotlib and Seaborn; the ontology parser
 also uses RDFLib. `scripts/requirements-visualization.txt` pins the Python
@@ -722,12 +722,12 @@ more readable forms.
 
 ## Figure catalog
 
-All figures are SVG files in `07_export/visualizations/figures/`. They are
+All figures are PDF files in `07_export/visualizations/figures/`. They are
 generated from project data rather than manually edited artwork.
 
 ### What, why, and what to observe
 
-The SVGs keep captions short so the plots remain readable. This table supplies
+The PDF figures keep captions short so the plots remain readable. This table supplies
 the interpretation that should accompany each figure in the thesis,
 presentation, or repository. “Observe” identifies the intended reading of the
 result; it is not an additional claim beyond the plotted data.
@@ -1021,7 +1021,7 @@ rates. These are aggregate bands, not reconstructed per-triple ranks.
 ## Table catalog
 
 The 38 CSV files in `07_export/visualizations/tables/` contain the exact values
-behind the figures and are preferable to extracting numbers from SVGs.
+behind the figures and are preferable to extracting numbers from plotted figures.
 `THESIS_TABLES.md` provides a combined human-readable preview.
 
 **01 — Dataset statistics.** Exact entities, relations, structural triples,
